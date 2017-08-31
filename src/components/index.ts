@@ -73,6 +73,9 @@ import {TreeMapComponent} from "./modules/charts/treemap/treemap.map.component";
 import {MapTitleComponent} from "./modules/charts/maptitle/map.title.component";
 import {CandlestickChartComponent} from "./modules/charts/candlestickchart/candlestick.chart.component";
 import {CandlestickWaterfallChartComponent} from "./modules/charts/candlestickwaterfallchart/candlestickwaterfall.chart.component";
+import {ImageComponent} from "./image/image.component";
+import {FieldSetComponent} from "./fildset/fieldset.component";
+import {FieldSetBodyComponent} from "./fildset/fieldsetbody.component";
 
 export * from './button/button.component';
 export * from './common.http.service';
@@ -89,6 +92,9 @@ export * from './radiogroup/radiogroup.component';
 export * from './ratinginput/ratinginput.component';
 export * from './textareainput/textareainput.component';
 export * from './typeahead/autocomplete.component';
+export * from "./image/image.component";
+export * from "./fildset/fieldset.component";
+export * from "./fildset/fieldsetbody.component";
 
 /*Button exports*/
 export * from './buttongroup/buttongroup.action.component'
@@ -205,6 +211,9 @@ export * from "./modules/charts/candlestickwaterfallchart/candlestickwaterfall.c
     CardComponent,
     ListBoxComponent,
     NotifyComponent,
+    ImageComponent,
+    FieldSetComponent,
+    FieldSetBodyComponent,
     //for charts
     ChartLegendComponent,
     ChartTitleComponent,
@@ -304,7 +313,10 @@ export * from "./modules/charts/candlestickwaterfallchart/candlestickwaterfall.c
     TreeMapComponent,
     MapTitleComponent,
     CandlestickChartComponent,
-    CandlestickWaterfallChartComponent
+    CandlestickWaterfallChartComponent,
+    ImageComponent,
+    FieldSetComponent,
+    FieldSetBodyComponent
   ]
 })
 export class AmexioWidgetModule {

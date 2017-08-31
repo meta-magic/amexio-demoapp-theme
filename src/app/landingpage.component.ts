@@ -30,16 +30,26 @@ export class LandingPageComponent implements OnInit {
  constructor( private _router : Router ,public _http : Http,private themeService:ThemeService) {
    this.availableThemes = [
      {
-       'displayName':'Default',
+       'displayName':'Default Theme',
        'name' : 'Default',
        'fileName' : "styles",
-       'category' : 'free'
+       'category' : 'free',
+       "childrens":[{
+         'displayName':'Blue',
+         'name' : 'Default',
+         'fileName' : 'styles'
+       }]
      },
      {
-       'displayName':'Material Design',
+       'displayName':'Material Design Theme',
        'name' : 'MDB',
        'fileName' : 'styles-bluegrey',
-       'category' : 'free'
+       'category' : 'free',
+       "childrens":[{
+         'displayName':'Bluegrey',
+         'name' : 'MDB',
+         'fileName' : 'styles-bluegrey'
+       }]
      }
    ]
    this._http.get('assets/data/menus/hometopmenu.json').subscribe(

@@ -269,7 +269,6 @@ export class SideNavBarComponent implements OnInit, AfterViewInit {
   }
 
   menuClick(nodeData: any) {
-    debugger;
     this.resetSelected(this.menus, nodeData.text);
     this.selectedNode.emit(nodeData);
     if (!nodeData.childrens && !this.expanded) {
@@ -351,7 +350,7 @@ export class SideNavBarComponent implements OnInit, AfterViewInit {
     for (let ir = 0 ; ir < data.length; ir++) {
 
       if(data[ir].text === "Sample Form"){
-        debugger;
+
       }
       if(data[ir].text === text){
         data[ir].selected = true;
