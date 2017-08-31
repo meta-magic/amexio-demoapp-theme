@@ -2,7 +2,7 @@
   "data":[
   {
     "text": "Home",
-    "icon" : "fa fa-desktop fa-fw",
+    "icon" : "fa fa-home fa-fw fa-lg",
     "mdbIcon" : "home",
     "routerLink" : "/home/dashboard"
   },
