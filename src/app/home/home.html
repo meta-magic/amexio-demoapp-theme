@@ -6,7 +6,7 @@
         [width]="'17%'"
         [httpUrl]="'assets/data/menus/sidebar.json'"
         [httpMethod]="'get'"
-        [dataReader]="'data'" [toPosition]="58" [expanded]="true"
+        [dataReader]="'data'" [toPosition]="65" [expanded]="true"
         (selectedNode)="routeToLink($event)">
         <ng-template #amexioNavHeaderTmpl let-navHeader="navHeader">
           &nbsp;<i [attr.class]="navHeader.icon"></i>&nbsp;<b>{{navHeader.text}}</b>
@@ -16,7 +16,6 @@
         </ng-template>
         <ng-template #amexioSubMenuTmpl let-subMenus="subMenus">
           <div style="width: 100%;" class="amexio-navbarsubmenu-a"> <i [attr.class]="subMenus.icon"></i>&nbsp;{{subMenus.text}}</div>
-
         </ng-template>
       </amexio-sidemenubar>
     </div>
@@ -26,7 +25,7 @@
         [width]="'17%'"
         [httpUrl]="'assets/data/menus/sidebar.json'"
         [httpMethod]="'get'"
-        [dataReader]="'data'" [toPosition]="58" [expanded]="true"
+        [dataReader]="'data'" [toPosition]="65" [expanded]="true"
         (selectedNode)="routeToLink($event)">
         <ng-template #amexioNavHeaderTmpl let-navHeader="navHeader">
           <i class="material-icons md-18 md-dark">{{navHeader.mdbIcon}}</i>
@@ -48,21 +47,41 @@
   <div *ngIf="isMobile" class="row">
     <table>
       <tr>
-        <td>
+        <td *ngIf="themeName==='Default'">
           <amexio-sidemenubar
             [width]="'90%'"
             [httpUrl]="'assets/data/menus/sidebar.json'"
             [httpMethod]="'get'"
             [dataReader]="'data'" [toPosition]="75" [expanded]="false"
             (selectedNode)="routeToLink($event)">
-            <ng-template #amexioNavHeaderTmpl  let-navHeader="navHeader">
+            <ng-template #amexioNavHeaderTmpl let-navHeader="navHeader">
               &nbsp;<i [attr.class]="navHeader.icon"></i>&nbsp;<b>{{navHeader.text}}</b>
             </ng-template>
-            <ng-template #amexioMenuHeaderTmpl  let-menuHeader="menuHeader">
-              <i [attr.class]="menuHeader.icon"></i>&nbsp;{{menuHeader.text}}
+            <ng-template #amexioMenuHeaderTmpl let-menuHeader="menuHeader">
+              <div style="width: 100%;" class="amexio-navbarsubmenu-a"> <i [attr.class]="menuHeader.icon"></i>&nbsp;{{menuHeader.text}}</div>
             </ng-template>
-            <ng-template #amexioSubMenuTmpl  let-subMenus="subMenus">
-              <i [attr.class]="subMenus.icon"></i>&nbsp;{{subMenus.text}}
+            <ng-template #amexioSubMenuTmpl let-subMenus="subMenus">
+              <div style="width: 100%;" class="amexio-navbarsubmenu-a"> <i [attr.class]="subMenus.icon"></i>&nbsp;{{subMenus.text}}</div>
+            </ng-template>
+          </amexio-sidemenubar>
+        </td>
+        <td  *ngIf="themeName==='MDB'" >
+          <amexio-sidemenubar
+            [width]="'90%'"
+            [httpUrl]="'assets/data/menus/sidebar.json'"
+            [httpMethod]="'get'"
+            [dataReader]="'data'" [toPosition]="75" [expanded]="false"
+            (selectedNode)="routeToLink($event)">
+            <ng-template #amexioNavHeaderTmpl let-navHeader="navHeader">
+              <i class="material-icons md-18 md-dark">{{navHeader.mdbIcon}}</i>
+              &nbsp;<b>{{navHeader.text}}</b>
+            </ng-template>
+            <ng-template #amexioMenuHeaderTmpl let-menuHeader="menuHeader">
+              <div style="width: 100%;" class="amexio-navbarsubmenu-a">  <i class="material-icons md-18 md-dark">{{menuHeader.mdbIcon}}</i>
+                &nbsp;{{menuHeader.text}}</div>
+            </ng-template>
+            <ng-template #amexioSubMenuTmpl let-subMenus="subMenus">
+              <div style="width: 100%;" class="amexio-navbarsubmenu-a">  <i class="material-icons md-18 md-dark">{{subMenus.mdbIcon}}</i>&nbsp;{{subMenus.text}}</div>
             </ng-template>
           </amexio-sidemenubar>
 
