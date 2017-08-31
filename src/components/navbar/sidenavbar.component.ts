@@ -30,7 +30,7 @@ import {CommonHttpService} from "../common.http.service";
                 </div>
             </li>
               <li class="nav-item" *ngFor="let header of menus ">
-                  <a class="nav-link amexio-sidenavbar-nav-link-a"  (click)="expandNode(header)">
+                  <a class="nav-link amexio-sidenavbar-nav-link-a" [ngClass]="header.selected ? 'amexio-link-selected' : 'amexio-link-notselected'" (click)="expandNode(header)">
                       <ng-container *ngIf="headerTemplate==null">{{header.text}}</ng-container>
 
                       <ng-template *ngIf="headerTemplate!=null" [ngTemplateOutlet]="headerTemplate" [ngOutletContext]="{ $implicit: {}, navHeader:header }"></ng-template>
@@ -41,7 +41,7 @@ import {CommonHttpService} from "../common.http.service";
                       <div [ngStyle]="header.hstyle" >
                           <ul>
                               <li *ngFor="let level1Menu of header.childrens">
-                                  <a (click)="menuClick(level1Menu)">
+                                  <a (click)="menuClick(level1Menu)" [ngClass]="level1Menu.selected ? 'amexio-link-selected' : 'amexio-link-notselected'" >
                                       <ng-container *ngIf="childTemplate==null">{{level1Menu.text}}</ng-container>
                                       <ng-template *ngIf="childTemplate!=null" [ngTemplateOutlet]="childTemplate" [ngOutletContext]="{ $implicit: {}, menuHeader:level1Menu }"></ng-template>
                                   </a>
@@ -71,6 +71,12 @@ import {CommonHttpService} from "../common.http.service";
           text-decoration: none;
       }
 
+      .amexio-link-selected{
+        
+      }
+      .amexio-link-notselected{
+        
+      }
       .amexio-sidenavbar-sidenavleft {
           height: 100%;
           width: 0;
@@ -263,6 +269,8 @@ export class SideNavBarComponent implements OnInit, AfterViewInit {
   }
 
   menuClick(nodeData: any) {
+    debugger;
+    this.resetSelected(this.menus, nodeData.text);
     this.selectedNode.emit(nodeData);
     if (!nodeData.childrens && !this.expanded) {
       this.closeNav();
@@ -337,6 +345,23 @@ export class SideNavBarComponent implements OnInit, AfterViewInit {
     });
 
     return res;
+  }
+
+  resetSelected(data: any[], text:string) {
+    for (let ir = 0 ; ir < data.length; ir++) {
+
+      if(data[ir].text === "Sample Form"){
+        debugger;
+      }
+      if(data[ir].text === text){
+        data[ir].selected = true;
+      }else{
+        data[ir].selected = false;
+      }
+      if(data[ir].childrens){
+        this.resetSelected(data[ir].childrens, text);
+      }
+    }
   }
 
   navToggle(){

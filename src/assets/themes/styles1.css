@@ -1,76 +1,144 @@
-/* You can add global styles to this file, and also import other style files */
-
-.card-header {
-  padding: .45rem 1.25rem;
-  margin-bottom: 0;
-  background-color: #f7f7f9;
-  border-bottom: 1px solid rgba(0,0,0,.125);
-  font-weight: bold;
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.2px;
 }
 
-.card-footer {
-  padding: .45rem 1.25rem;
-  background-color: #f7f7f9;
-  border-top: 1px solid rgba(0,0,0,.125);
-}
-.card {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, .125);
-  border-radius: .0rem;
-  box-shadow: 5px 5px 5px #888888;
-}
-.amexio-sidenavbar-nav-link-a:hover{
-  color: #0c84e4 !important;
-}
-.a-link:hover{
-  color: #0c84e4 !important;
-}
-.navbar-light{
+.navbar-light
+{
   height: 64px;
   width: 100%;
   background-color: #90A4AE;
   vertical-align: middle;
-  box-shadow: 2px;
+  box-shadow: 2;
   padding-left: 15px;
   box-shadow: 0px 0px 2px 2px #666;
 }
-.amexio-sidenavbar-sidenavleft .a-link:hover{
-  background-color: #eee !important;
+
+/* ----------------------------------- */
+/* START OF CARD COMPONENT */
+/* ----------------------------------- */
+.card{
+  border-radius: 0px;
+  color: #FFFFFF;
+}
+.card .card-header{
+  background-color: #455A64;
+  border-radius: 0px;
+  font-size: 20px;
+  padding: 20px 24px;
+  overflow: auto;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.card .card-block{
+  border-radius: 0px;
+  color: rgba(0,0,0,0.87);
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: 400;
+
+}
+.card .card-footer{
+  border-radius: 0px;
+  border: none;
+  background-color: #FFFFFF;
+
 }
 
-/*new css classes*/
+/* ----------------------------------- */
+/* COMPONENT - NAVIGATION */
+/* ----------------------------------- */
+
+.sidenavbox{
+  min-height: 1000px; border-right: 1px solid #ddd;
+}
+
 .amexio-sidenavbar-sidenavleft{
-  width: 100%;
-  height: 100%;
-  overflow:hidden;
-  float: left;
   background-color: #fff;
-}
-.amexio-sidenavbar-sidenavleft a{
-  height: 48px;
+  text-decoration: none;
 }
 
-.amexio-sidenavbar-sidenavleft ul{
+.amexio-sidenavbar-sidenavleft .navbar-nav{
   width: 100%;
   margin: 0px;
   padding: 0px;
 }
+
+.amexio-sidenavbar-sidenavleft .nav-item{
+  list-style: none;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  text-align: left;
+  padding: 13px 13px 13px 17px;
+  font-weight: 500;
+}
+
+.amexio-sidenavbar-sidenavleft a{
+  height: 48px;
+}
+
+.amexio-navbarsubmenu-a{
+  height: 48px;
+}
+
+.amexio-sidenavbar-sidenavleft .amexio-sidenavbar-nav-link-a:hover {
+  background-color: #eee;
+}
+
+.amexio-sidenavbar-sidenavleft .amexio-navbarsubmenu-a:hover {
+  background-color: #eee;
+}
+
 .amexio-sidenavbar-sidenavleft li i{
   padding-right: 38px;
 }
-/*for material design*/
-.material-icons.md-18 {
-  font-size: 18px;
-}
-.material-icons.md-dark {
-  color: #6F6F6F;
+
+.amexio-link-selected{
+  color: rgba(38,166,154,0.87) !important;
 }
 
+
+
+/* ----------------------------------- */
+/* COMPONENT - CONTACT LIST */
+/* ----------------------------------- */
+
+.contactlist{
+  padding: 0px !important;
+}
+
+
+.contactlist .card-block{
+  padding: 0px !important;
+}
+
+
+.amexio-listbox-list-item  li{
+  display: block;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #E0E0E0;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+
+
+
+.amexio-listbox-list li img{
+  width: 52px;
+  height: 52px;
+  border-radius: 200px;
+  margin-right: 20px;
+  float: left;
+}
+
+.amexio-listbox-list li .title{
+  float: left;
+  font-size: 16px;
+  color: rgba(0,0,0,0.87);
+  padding-top: 8px;
+}

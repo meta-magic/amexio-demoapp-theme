@@ -22,25 +22,53 @@ import {Http} from "@angular/http";
 @Component({
     selector: 'amexio-listbox',
     template : `
-        <div style="padding: 10px;" >
-            <table class="list-group">
-                <tr *ngIf="(filter == true)" class="list-group-item">
-                    <td colspan="2" width="90%">
-                        <input type="text" class="form-control"  [(ngModel)]="filterText"  placeholder="Search" (keyup)="filterData()">
-                    </td>
-                </tr>
-                <tr class="list-group-item" *ngFor="let row of viewData let rowno = index ">
-                    <td *ngIf="(enableCheckbox == true)" style="padding: 10px; ">
-                        <input type="checkbox" (click)="selectedCheckBox($event,rowno,row)"/>
-                    </td>
-                    <td (click)="onClick(row)" style="cursor: pointer;" >
-                        <ng-container *ngIf="!bodyTemplate"> {{row[displayField]}}</ng-container>
-                        <ng-template *ngIf="bodyTemplate" [ngTemplateOutlet]="bodyTemplate" [ngOutletContext]="{ row: row }"></ng-template>
-                    </td>
-                </tr>
-            </table>
-        </div>
+
+      <div class="amexio-listbox">
+        <ul  class="list-group amexio-listbox-list">
+          <li  *ngIf="(filter == true)"  class="list-group-item amexio-listbox-list-item amexio-listbox-search">
+            <input type="text" class="form-control"  [(ngModel)]="filterText"  placeholder="Search" (keyup)="filterData()">
+          </li>
+          <li class="list-group-item  amexio-listbox-list-item" *ngFor="let row of viewData let rowno = index ">
+            <div>
+                <span *ngIf="(enableCheckbox == true)">
+                  <input type="checkbox" (click)="selectedCheckBox($event,rowno,row)"/>
+                </span>
+            </div>
+            <div>
+                <span (click)="onClick(row)" >
+                    <ng-container *ngIf="!bodyTemplate"> {{row[displayField]}}</ng-container>
+                    <template *ngIf="bodyTemplate" [ngTemplateOutlet]="bodyTemplate" [ngOutletContext]="{ row: row }"></template>
+                </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      
     `
+
+  ,
+
+  styles:[
+      `
+      .amexio-listbox{
+
+      }
+
+      .amexio-listbox-list{
+
+      }
+
+      .amexio-listbox-list-item{
+
+      }
+
+      .amexio-listbox-search{
+
+      }
+
+    `
+  ]
 
 })
 export class ListBoxComponent implements OnInit{
