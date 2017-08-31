@@ -55,6 +55,7 @@ export class LandingPageComponent implements OnInit {
   routeDemo(event:any){
     this._router.navigate(['/home/dashboard']);
   }
+  //set theme which user has selected
   setTheme(themeName : any){
     //set Theme name to singleton ThemeService
     this.themeService.setThemeName(themeName.name);
@@ -65,6 +66,7 @@ export class LandingPageComponent implements OnInit {
       this._router.navigate(['/home/dashboard']);
   }
 
+  //removed old theme css
   removeExistingTheme(keyList : any){
     if(keyList!=null && keyList && keyList.length!=0){
       keyList.forEach(
@@ -77,6 +79,7 @@ export class LandingPageComponent implements OnInit {
 
   }
 
+  //apply theme based on use selection
   createAndApplyNewTheme(theme : any){
 
     if(theme.name==="MDB"){

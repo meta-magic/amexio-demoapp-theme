@@ -26,10 +26,6 @@ export class AppComponent implements OnInit{
     }
   }
   onResize(event:any){
-    //Theme apply
-    if(this.themeService.getCurrentUsageThemeName()){
-      this.applyTheme(this.themeService.getCurrentUsageThemeName());
-    }
     this.reAdjust();
     if (event.target.innerWidth < 768) {
       this.isMobile = true;
@@ -37,13 +33,16 @@ export class AppComponent implements OnInit{
       this.isMobile = false;
     }
   }
+  //apply theme and remove old theme css
   applyTheme(name : any){
+
     let currentTheme = document.head.querySelectorAll(`link[rel="stylesheet"]`);
     this.removeExistingTheme(currentTheme);
     if(name!=null)
       this.createAndApplyNewTheme(name);
   }
 
+  //remove old theme css
   removeExistingTheme(keyList : any){
     if(keyList!=null && keyList && keyList.length!=0){
       keyList.forEach(
@@ -58,11 +57,11 @@ export class AppComponent implements OnInit{
 
   createAndApplyNewTheme(theme : any){
 
-    if(name==="MDB"){
+    if(theme==="MDB"){
       //this is for MDB theme
       let linkEl = document.createElement('link');
       linkEl.setAttribute('rel', 'stylesheet');
-      linkEl.href = CSS_LOCATION+'/'+theme.fileName+'.css';
+      linkEl.href = CSS_LOCATION+'styles1.css';
       document.head.appendChild(linkEl);
 
       //add material +family=Roboto api
@@ -79,13 +78,19 @@ export class AppComponent implements OnInit{
       //this is for default theme
       let linkEl = document.createElement('link');
       linkEl.setAttribute('rel', 'stylesheet');
-      linkEl.href = CSS_LOCATION+'/'+theme.fileName+'.css';
+      linkEl.href = CSS_LOCATION+'styles.css';
       document.head.appendChild(linkEl);
     }
 
   }
   ngOnInit(){
+    //set themename which user selected
+    this.themeService.setThemeName(this.themeService.getCurrentUsageThemeName());
 
+    //Theme apply
+    if(this.themeService.getCurrentUsageThemeName()){
+      this.applyTheme(this.themeService.getCurrentUsageThemeName());
+    }
     this.reAdjust();
   }
 }
