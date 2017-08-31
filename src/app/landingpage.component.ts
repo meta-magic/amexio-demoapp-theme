@@ -30,13 +30,15 @@ export class LandingPageComponent implements OnInit {
  constructor( private _router : Router ,public _http : Http,private themeService:ThemeService) {
    this.availableThemes = [
      {
+       'displayName':'Default',
        'name' : 'Default',
        'fileName' : "styles",
        'category' : 'free'
      },
      {
+       'displayName':'Material Design',
        'name' : 'MDB',
-       'fileName' : 'styles1',
+       'fileName' : 'styles-bluegrey',
        'category' : 'free'
      }
    ]

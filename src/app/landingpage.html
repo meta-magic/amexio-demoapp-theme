@@ -28,7 +28,7 @@
           <i class="fa fa-paint-brush" aria-hidden="true"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="themeToggler" style="overflow-y: auto">
-          <a class="dropdown-item" (click)="setTheme(theme)" *ngFor="let theme of availableThemes">{{theme.name}}</a>
+          <a class="dropdown-item" (click)="setTheme(theme)" *ngFor="let theme of availableThemes">{{theme.displayName}}</a>
         </div>
       </li>
     </div>

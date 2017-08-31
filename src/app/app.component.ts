@@ -61,7 +61,7 @@ export class AppComponent implements OnInit{
       //this is for MDB theme
       let linkEl = document.createElement('link');
       linkEl.setAttribute('rel', 'stylesheet');
-      linkEl.href = CSS_LOCATION+'styles1.css';
+      linkEl.href = CSS_LOCATION+'styles-bluegrey.css';
       document.head.appendChild(linkEl);
 
       //add material +family=Roboto api
