@@ -83,7 +83,6 @@ export class LandingPageComponent implements OnInit {
     if(keyList!=null && keyList && keyList.length!=0){
       keyList.forEach(
         (key)=>{
-          if(key.id=='custom_theme')
           document.head.removeChild(key);
         }
       );
@@ -99,27 +98,23 @@ export class LandingPageComponent implements OnInit {
       //this is for MDB theme
       let linkEl = document.createElement('link');
       linkEl.setAttribute('rel', 'stylesheet');
-      linkEl.id='custom_theme';
       linkEl.href = CSS_LOCATION+'/'+theme.fileName+'.css';
       document.head.appendChild(linkEl);
 
       //add material +family=Roboto api
       let font1 = document.createElement('link');
       font1.setAttribute('rel', 'stylesheet');
-      font1.id='custom_theme';
       font1.href = "https://fonts.googleapis.com/css?family=Roboto:400,500,700;";
       document.head.appendChild(font1);
 
       let font2 = document.createElement('link');
       font2.setAttribute('rel', 'stylesheet');
-      font2.id='custom_theme';
       font2.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
       document.head.appendChild(font2);
     }else{
       //this is for default theme
       let linkEl = document.createElement('link');
       linkEl.setAttribute('rel', 'stylesheet');
-      linkEl.id='custom_theme';
       linkEl.href = CSS_LOCATION+'/'+theme.fileName+'.css';
       document.head.appendChild(linkEl);
     }

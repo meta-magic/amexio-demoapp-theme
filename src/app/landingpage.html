@@ -30,9 +30,11 @@
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="themeToggler" style="overflow-y: auto">
           <ng-container *ngFor="let theme of availableThemes">
             <a class="dropdown-item" [attr.id]="theme.name"  >{{theme.displayName}}</a>
-            <div class="dropdown-item" [attr.aria-labelledby]="theme.name">
-              <a class="dropdown-item" (click)="setTheme(theme)" *ngFor="let childrenTheme of theme.childrens"> &bull; {{childrenTheme.displayName}}</a>
-            </div>
+               <ul>
+                 <div style="padding-left: 25px">
+                   <li *ngFor="let childrenTheme of theme.childrens"  (click)="setTheme(theme)"> {{childrenTheme.displayName}}</li>
+                 </div>
+               </ul>
           </ng-container>
         </div>
       </li>
