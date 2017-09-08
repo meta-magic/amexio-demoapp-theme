@@ -73,7 +73,7 @@
     {
       "text": "Charts",
       "icon" : "fa fa-bar-chart fa-fw",
-      "mdbIcon":"dashboard",
+      "mdbIcon":"insert_chart",
       "routerLink" : "/home/charts"
     },
     {
