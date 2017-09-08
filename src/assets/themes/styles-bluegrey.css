@@ -141,6 +141,13 @@ body{
   font-size: 16px;
   color: rgba(0,0,0,0.87);
   padding-top: 8px;
+
+}
+.amexio-listbox-list .title a{
+  font-size: 16px;
+  color: aqua;
+  text-decoration: underline;
+  color: rgba(0,0,0,0.54);
 }
 
 /*For Data Grid Custom Theme*/
@@ -190,3 +197,4 @@ body{
   font-weight: 500;
   line-height: 16px;
 }
+

@@ -77,11 +77,11 @@
                         [displayField]="'name'">
           <ng-template #amexioBodyTmpl let-row="row">
             <div class="row" style="float: left">
-              <div class="col-lg-4 col-sm-12 col-xs-12 ">
+              <div class="col-lg-3 col-sm-6 col-xs-12 ">
                 <img class="rounded-circle" src="assets/images/profile/{{row.profile}}"/>
               </div>
-              <div class="col-lg-8 col-sm-12 col-xs-12">
-                <div class="title">{{row.name}}<br/>xyz@metamagicglobal.com</div>
+              <div class="col-lg-9 col-sm-12 col-xs-12">
+                <div class="title">{{row.name}}<br><a href="#">xyz@metamagicglobal.com</a></div>
               </div>
             </div>
           </ng-template>
