@@ -101,7 +101,7 @@
         [httpUrl]="'assets/data/issue.json'"
         [httpMethod]="'get'"
         (selectedRowData)="onRowSelect($event)"
-        (rowSelect)="onRowClick($event)">
+        (rowSelect)="onRowClick($event)" [cClass]="'gridStyle'" [tableDatacClass]="'datagridrow'" [tableTitlecClass]="'headerStyle'" [tableHeadercClass]="'headerStyleColumn'">
         <amexio-data-table-column [dataIndex]="'date'" [dataType]="'string'" [hidden]="false" [text]="'Date'"></amexio-data-table-column>
         <amexio-data-table-column [dataIndex]="'status'" [dataType]="'string'" [hidden]="false" [text]="'Status'"></amexio-data-table-column>
         <amexio-data-table-column [dataIndex]="'issue'" [dataType]="'string'" [hidden]="false" [text]="'Issue'"></amexio-data-table-column>
