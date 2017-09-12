@@ -99,6 +99,7 @@ body{
 
 .amexio-link-selected{
   color: rgba(38,166,154,0.87) !important;
+  background-color: #f5f5f5;
 }
 
 
@@ -182,7 +183,7 @@ body{
 .datagridrow{
   height:48px;
   border-bottom: 1px solid #E0E0E0;
-  padding: 16px 24px 0px 24px;
+  padding: 16px 24px 0px 24px!important;
   background-color: #fff;
 }
 .datagridrow:hover{
@@ -196,5 +197,391 @@ body{
   font-size: 14px;
   font-weight: 500;
   line-height: 16px;
+}
+
+/* ----------------------------------- */
+/* CUSTOM CHECKBOX */
+/* ----------------------------------- */
+.amexio-checkbox[type="checkbox"] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 10px;
+  position: absolute;
+  width: 1px;
+}
+
+.amexio-datatable-wrap .table-cell {
+  float: left;
+  padding: 0 20px;
+}
+.amexio-checkbox[type="checkbox"]:active + label:before {
+  transition-duration: 0s;
+}
+.amexio-checkbox[type="checkbox"] + label {
+  position: relative;
+  padding-left: 2em;
+  vertical-align: middle;
+  user-select: none;
+  cursor: pointer;
+}
+.amexio-checkbox[type="checkbox"] + label:before {
+  box-sizing: content-box;
+  content: '';
+  color: #4f8196;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  margin-top: -9px;
+  border: 2px solid #000;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+.amexio-checkbox[type="checkbox"]:checked + label:before {
+  border: 2px solid #26a69a;
+}
+.amexio-checkbox[type="checkbox"] + label:after {
+  box-sizing: content-box;
+  content: '';
+  background-color: #4f8196;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  transform: scale(0);
+  transform-origin: 50%;
+  transition: transform 200ms ease-out;
+}
+.amexio-checkbox[type="checkbox"]:disabled + label:before {
+  border-color: #cccccc;
+}
+.amexio-checkbox[type="checkbox"]:disabled:focus + label:before, .amexio-checkbox input[type="checkbox"]:disabled:hover + label:before {
+  background-color: inherit;
+}
+.amexio-checkbox[type="checkbox"]:disabled:checked + label:before {
+  background-color: #cccccc;
+}
+.amexio-checkbox[type="checkbox"] + label:after {
+  background-color: transparent;
+  top: 50%;
+  left: 4px;
+  width: 8px;
+  height: 3px;
+  margin-top: -4px;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 0 0 3px 3px;
+  border-image: none;
+  transform: rotate(-45deg) scale(0);
+}
+.amexio-checkbox[type="checkbox"]:checked + label:after {
+  content: '';
+  transform: rotate(-45deg) scale(1);
+  transition: transform 200ms ease-out;
+}
+.amexio-checkbox[type="radio"]:checked + label:before {
+  animation: borderscale 300ms ease-in;
+  background-color: white;
+}
+.amexio-checkbox[type="radio"]:checked + label:after {
+  transform: scale(1);
+}
+.amexio-checkbox[type="radio"] + label:before {
+  border-radius: 50%;
+}
+.amexio-checkbox[type="checkbox"]:checked + label:before {
+  animation: borderscale 200ms ease-in;
+  background: #26A69A;
+}
+.amexio-checkbox[type="checkbox"]:checked + label:after {
+  transform: rotate(-45deg) scale(1);
+}
+
+
+.form-control{
+  border: none;
+  border-bottom: 2px solid rgba(0,0,0,0.42);
+  color: rgba(0,0,0,0.87)!important;
+  display: block;
+  line-height: 1.42857;
+  padding: 2px 12px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500!important;
+}
+/*check box label*/
+.form-check-label{
+  border-bottom: 1px solid #f2f2f2;
+  width: 100%;
+  padding: 10px 20px!important;
+  width: 100%;
+}
+.select {
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  padding: 4px 8px;
+  font-size: 16px;
+  color: rgba(0,0,0,0.87)!important;
+  border: none;
+  border-bottom: 2px solid rgba(0,0,0,0.42);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+/*Tab */
+
+.nav-tabs .nav-link{
+  border: 0px solid transparent !important;
+  display: block!important;
+  color: #00695C!important;
+  padding: 12px!important;
+  font-size: 20px!important;
+  text-transform: uppercase;
+  text-decoration:none;
+}
+
+.nav-link.active{
+  /*border-bottom: 2px solid red !important;*/
+  border-bottom: 2px solid #00695C !important;
+}
+.nav-item dropdown a nav-link{
+  border-bottom:none!important;
+}
+.nav-tabs {
+  border-bottom: 1px solid rgba(0,0,0,0.42) !important;
+  margin-bottom: 20px;
+}
+
+.amexio-tabpane-wrapper {
+  height: 70px!important;
+}
+
+/*Button*/
+
+.btn {
+  -moz-user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-transform: uppercase
+}
+.btn-primary {
+  background-color: #26A69A;
+  border-color: transparent;
+  color: #fff;
+}
+.btn-link {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  color: #26A69A;
+  font-weight: 400;
+}
+
+/*Login Page*/
+.login-card {
+  width: 400px;
+  margin: 0 auto
+}
+.mainpanel {
+  width: 100%;
+  padding: 19px 16px 19px 16px;
+  overflow: hidden;
+  color: rgba(0,0,0,0.87);
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.mainpanel .title {
+  font-size: 24px!important;
+  line-height: 28px!important;
+  color: rgba(38,166,154,0.87) !important;
+  margin-bottom: 10px!important;
+  display: block
+}
+.mainpanel .subtitle {
+  color: rgba(0,0,0,0.54) !important;
+  line-height: 18px!important;
+  font-size: 14px!important;
+}
+.mainpanel a {
+  color: rgba(0,0,0,0.87);
+}
+
+.login-form {
+  height: 200px;
+  margin: 50px 0
+}
+.forgot-password{
+  margin-top:20px;
+}
+.forgot-password a{
+  color: #26A69A!important;
+}
+.form-group {
+  margin: 12px 0;
+  width: 100%;
+  float: left;
+  height: 65px
+}
+.form-group:before, .form-group:after {
+  content: "";
+  display: table
+}
+.form-group:after {
+  clear: both
+}
+.form-group.last {
+  margin-bottom: 0
+}
+.register-contr a {
+  color: #26A69A!important;
+}
+.full-height {
+  height: 100vh
+}
+.workspace {
+  width: auto;
+  overflow: hidden;
+  background-color: #FAFAFA;
+  padding: 24px 14px 24px 255px;
+}
+.field-align-contr {
+  padding: 0 12px;
+  width:100%;
+  float:left
+}
+
+/*Label*/
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  max-width: 100%;
+  color: rgba(0,0,0,0.54);
+  font-weight: 500;
+  padding: 0 12px;
+  line-height: none;
+  font-weight: 500;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+/*DropDown*/
+.dropdown{
+  border-bottom: 2px solid rgba(0,0,0,0.42) !important;
+}
+.dropdown-item:hover{
+}
+
+/*Date Picker*/
+.input-group-addon{
+  border: none;
+  background: transparent;
+  margin-top: 25px;
+  padding: 0px;
+}
+/*Data-table checkbox*/
+.amexio-datatable-checkbox{
+  padding-left: 15px!important;
+  width: 50px!important;
+}
+
+/*Profile */
+.img-responsive {
+  max-width: 100%;
+  width: 100%;
+}
+.imagepanel {
+  background-color: cornflowerblue;
+}
+.half {
+  float: left;
+  overflow: hidden;
+}
+.first-35 {
+  padding: 0px 10px 10px 0px;
+  width: 35%;
+}
+/*panel action*/
+.actionpanel {
+  padding: 12px 16px 12px 16px;
+  height: 48px;
+}
+.actionpanel .iconbuttons {
+  float: left;
+  text-align: left;
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  text-align: center;
+  padding: 4px;
+}
+.actionpanel .links {
+  float: right;
+  text-align: right;
+  padding-top: 5px
+}
+.actionpanel .links a {
+  font-size: 13px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(38,166,154,0.87);
+}
+/*Material icon for profile*/
+.material-icons.md-dark {
+  color: #6F6F6F;
+}
+
+/* ----------------------------------- */
+/* COMPONENT - CONTACT LIST - MINI */
+/* ----------------------------------- */
+
+.contact-list-mini .title {
+  float: left;
+  font-size: 13px;
+  color: rgba(0,0,0,0.87);
+  padding-top: 8px;
+  font-weight: 500;
+}
+
+/*TREEVIEW */
+.amexio-treeview-ul{
+  padding-left: 20px!important;
+}
+.amexio-tree-view-label{
+  text-decoration: none !important;
+  color: rgba(0,0,0,0.87) !important;
+  display: table-cell!important;
+  vertical-align: middle!important;
+  padding: 0px 0px 25px 10px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/*TypeAHead stype*/
+.amexio-typeahead .form-control{
+  border-bottom: none;
 }
 

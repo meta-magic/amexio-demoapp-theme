@@ -4,73 +4,46 @@
       "text": "Inbox",
       "expanded":false,
       "checked": false,
-      "icon": "fa fa-inbox"
+      "icon": "fa fa-inbox",
+      "materialIcon":"dashboard"
     },{
       "text": "Sent Mail",
       "expanded": false,
       "checked": false,
-      "icon": "fa fa-envelope-o"
+      "icon": "fa fa-envelope-o",
+      "materialIcon":"email"
     },{
       "text": "Trash",
       "expanded": false,
       "checked": false,
-      "icon": "fa fa-trash-o"
+      "icon": "fa fa-trash-o",
+      "materialIcon":"delete"
     },
     {
       "text": "Label",
       "expanded": false,
       "checked": false,
       "icon": "fa fa-tag",
+      "materialIcon":"label",
       "children": [
         {
           "text": "High",
           "expanded": false,
           "checked": false,
-          "icon": "fa fa-tag fa-lg"
+          "icon": "fa fa-tag fa-lg",
+          "materialIcon":"label"
         },{
           "text": "Medium",
           "expanded": false,
           "checked": false,
-          "icon": "fa fa-tag fa-md"
+          "icon": "fa fa-tag fa-md",
+          "materialIcon":"label"
         },{
           "text": "Low",
           "expanded": false,
           "checked": false,
-          "icon": "fa fa-tag "
-        }
-      ]
-    },
-    {
-      "text": "Contacts",
-      "expanded": true,
-      "checked": false,
-      "icon": "fa fa-users",
-      "children": [
-        {
-          "text": "Ashutosh Jadhav",
-          "expanded": false,
-          "checked": false,
-          "icon": ""
-        },{
-          "text": "Ketan Gote",
-          "expanded": false,
-          "checked": false,
-          "icon": ""
-        },{
-          "text": "Araf Karsh Hamid",
-          "expanded": false,
-          "checked": false,
-          "icon": ""
-        },{
-          "text": "Sagar Jadhav",
-          "expanded": false,
-          "checked": false,
-          "icon": ""
-        },{
-          "text": "Pratik Kelwalkar",
-          "expanded": false,
-          "checked": false,
-          "icon": ""
+          "icon": "fa fa-tag ",
+          "materialIcon":"label"
         }
       ]
     }

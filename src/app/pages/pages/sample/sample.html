@@ -7,21 +7,26 @@
       <div class="col-lg-6">
         <amexio-text-input [fieldLabel]="'Name'" name ="name"
                            [placeholder]="'Enter name'"
-                           [allowBlank]="true" [errorMsg] ="'Please enter name'"
-                           [iconFeedBack]="true">
+                           [enablePopOver]="true"
+                           [allowBlank]="false" [errorMsg] ="'Please enter name'"
+                           [minLength]="3" [maxLength]="15" [minErrorMsg]="'Name should be minimum 3 characters'"
+                           [maxErrorMsg]="'Name should be less than 15 characters'"
+        >
+          >
         </amexio-text-input>
       </div>
       <div class="col-lg-6">
         <amexio-textarea-input [fieldLabel]="'Address'" name ="Address"
-                               [placeholder]="'Enter Address'"
-                               [allowBlank]="true" [errorMsg] ="'Please enter Address'"
-                               [iconFeedBack]="true" [noOfrows]="'2'" [noOfCols]="'2'"
-                               [popoverPlacement]="'top'" >
+                               [placeholder]="'Enter address'"
+                               [errorMsg] ="'Please enter address'"
+                               [noOfrows]="'1'" [noOfCols]="'2'"
+                               [allowBlank]="false" [enablePopOver]="true"
+                               [minLength]="5" [minErrorMsg]="'Address should be minimum 5 characters'"
+        >
         </amexio-textarea-input>
       </div>
       <div class="col-lg-6">
         <amexio-dropdown
-
                          [(ngModel)]="country"
                          [placeholder]="'Choose City'"
                          name="country"
@@ -44,25 +49,29 @@
                                [minErrorMsg]="'Minimum 6 char required'"
                                [maxLength]="32"
                                [maxErrorMsg]="'Maximum 32 char allowed'"
-                               [iconFeedBack]="true"
                                [popoverPlacement]="'top'">
         </amexio-password-input>
       </div>
       <div class="col-lg-6">
         <amexio-email-input [fieldLabel]="'Email Id'" name ="email"
-                            [placeholder]="'Enter Email Id'"
-                            [allowBlank]="false" [errorMsg] ="'Please enter Email Id'"
-                            [iconFeedBack]="true">
+                            [placeholder]="'Enter mail id'"
+                            [enablePopOver]="true"
+                            [allowBlank]="false" [errorMsg] ="'Please enter correct mail id'">
         </amexio-email-input>
       </div>
       <div class="col-lg-6">
         <amexio-number-input [fieldLabel]="'Number Input'" name ="age"
-                             [placeholder]="'Enter Age'">
+                             [enablePopOver]="true"
+                             [allowBlank]="false"
+                             [minValue]="18"
+                             [errorMsg]="'Please enter your age'"
+                             [placeholder]="'Enter age'">
         </amexio-number-input>
       </div>
       <div class="col-lg-6">
-        <label>Date of birth</label>
+
         <amexio-date-time-picker
+          [fieldLabel]="'DOB'"
           [timepicker]="false"
           [datepicker]="datepickerOpts"
           [(ngModel)]="currentDate">
@@ -74,7 +83,7 @@
                           [httpUrl]="'assets/data/country.json'"
                           [httpMethod]="'get'"
                           [key]="'countryName'"
-                          [fieldLabel]="'Country Name'">
+                          [fieldLabel]="'Country Name'" [placeholder]="'Search'">
         </amexio-typeahead>
         <br>
       </div>

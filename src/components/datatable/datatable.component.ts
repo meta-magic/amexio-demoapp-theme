@@ -73,8 +73,8 @@ declare var $;
             {{currentPage}}
             </button>
             <div class="dropdown-menu">
-              <a *ngFor="let row of pageNumbers let pageNo = index " class="dropdown-item" 
-                  (click)="setPageNo(pageNo+1)">{{pageNo + 1}}</a>
+              <a *ngFor="let row of pageNumbers let pageNo = index " class="dropdown-item"
+                 (click)="setPageNo(pageNo+1)">{{pageNo + 1}}</a>
             </div>
               <ng-container *ngIf="currentPage==1 && !groupByColumn">
                1- {{pageSize}} of {{this.data.length}}
@@ -99,31 +99,32 @@ declare var $;
             <i class="fa fa-chevron-right" (click)="next()"></i>&nbsp;
             </span>
             
-            <span class="nav-item dropdown">
-        <a class="nav-link " id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="nav-item ">
+        <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-bars" aria-hidden="true"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" *ngFor="let cols of columns;let i = index;">
              <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" (click)="setColumnVisiblity(cols.dataIndex)" [attr.checked]="!cols.hidden ? true: null"> {{cols.text +" "}}
-              </label>
+              <input [attr.id]="headerCheckboxId+i" class="amexio-checkbox" type="checkbox" (click)="setColumnVisiblity(cols.dataIndex)" [attr.checked]="!cols.hidden ? true: null"> 
+             <label [attr.for]="headerCheckboxId+i">{{cols.text +" "}}</label> 
+             </label>
           </a>
         </div>
       </span>
-            
-            
-       <!--    <button style="padding: 2px" type="button" class="btn btn-secondary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <i class="fa fa-bars" aria-hidden="true"></i>
-           </button>
-            <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item"><b> </b></a>
-              <a class="dropdown-item" *ngFor="let cols of columns;let i = index;">
-              <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" (click)="setColumnVisiblity(cols.dataIndex)" [attr.checked]="!cols.hidden ? true: null"> {{cols.text +" "}}
-              </label>
-              </a>
-            </div>-->
+
+
+            <!--    <button style="padding: 2px" type="button" class="btn btn-secondary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+                 <div class="dropdown-menu dropdown-menu-right">
+                   <a class="dropdown-item"><b> </b></a>
+                   <a class="dropdown-item" *ngFor="let cols of columns;let i = index;">
+                   <label class="form-check-label">
+                   <input class="form-check-input" type="checkbox" (click)="setColumnVisiblity(cols.dataIndex)" [attr.checked]="!cols.hidden ? true: null"> {{cols.text +" "}}
+                   </label>
+                   </a>
+                 </div>-->
           </ng-container>
         </div>
       </span>
@@ -149,7 +150,7 @@ declare var $;
       <table class="table table-sm">
         <tr [ngClass]="tableHeadercClass" *ngIf="filtering && !groupByColumn">
           <ng-container *ngIf="!smallScreen">
-            <td *ngIf="checkboxSelect" style="width: 10%"></td>
+            <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox"></td>
             <td  *ngFor="let cols of columns let index=index" [hidden]="cols.hidden">
               <amexio-filter-component [column]="cols"
                                        (filterObject)="getFilteredData($event)"></amexio-filter-component>
@@ -167,8 +168,9 @@ declare var $;
       </table>
       <table class="table table-sm  table-hover  table-bordered ">
         <tr *ngIf="!smallScreen">
-          <td *ngIf="checkboxSelect" style="width: 10%;vertical-align: middle;">
-            <input type="checkbox" (click)="selectAllVisibleRows()">
+          <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
+            <input [attr.id]="headerCheckboxId" class="amexio-checkbox" type="checkbox" (click)="selectAllVisibleRows()">
+            <label [attr.for]="headerCheckboxId"></label>
           </td>
           <td style="height: 50px;vertical-align: middle" [ngClass]="tableHeadercClass" *ngFor="let cols of columns let index=index" [hidden]="cols.hidden" (click)="sortOnColHeaderClick(cols)">
 
@@ -211,9 +213,10 @@ declare var $;
                       <tbody>
                       <tr class="amexio-datatable-row" *ngFor="let rows of row.groupData let rowIndex = index" id="{{'row'+rowIndex}}"
                           (click)="rowClick(rows, rowIndex)">
-                        <td  *ngIf="checkboxSelect" style="width: 10%;padding-top: 10px">
-                          <input type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}"
+                        <td  *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
+                          <input class="amexio-checkbox" type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}"
                                  [attr.checked]="selectAll? true: null" (click)="setSelectedRow(rows, $event)">
+                          <label for="checkbox-{{elementId}}-{{rowIndex}}"></label>
                         </td>
                         <td style="padding-top: 10px" *ngFor="let cols of columns" [hidden]="cols.hidden">
                           <!-- If user hasnt specified customized cell use default -->
@@ -241,11 +244,12 @@ declare var $;
               </td>
             </tr>
             <tr [ngClass]="tableDatacClass" [ngClass]="{'hiderow' : !(viewRows?.length > 0),'showrow ' : viewRows?.length > 0}"
-                 style="cursor: pointer; height: 50px;" *ngFor="let row of viewRows let rowIndex = index " id="{{'row'+rowIndex}}"
-                 (click)="rowClick(row, rowIndex)" [class.info]="isSelected(rowIndex)">
-              <td *ngIf="checkboxSelect" style="width: 10%;vertical-align: middle">
-                <input type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}" [attr.checked]="selectAll? true: null"
+                style="cursor: pointer; height: 50px;" *ngFor="let row of viewRows let rowIndex = index " id="{{'row'+rowIndex}}"
+                (click)="rowClick(row, rowIndex)" [class.info]="isSelected(rowIndex)">
+              <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
+                <input class="amexio-checkbox" type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}" [attr.checked]="selectAll? true: null"
                        (click)="setSelectedRow(row, $event)">
+                <label for="checkbox-{{elementId}}-{{rowIndex}}"></label>
               </td>
               <td *ngFor="let cols of columns let index=index" [hidden]="cols.hidden" style="vertical-align: middle !important;">
                 <!-- If user hasnt specified customized cell use default -->
@@ -283,9 +287,10 @@ declare var $;
                       <tbody>
                       <tr class="amexio-datatable-row" *ngFor="let rows of row.groupData let rowIndex = index" id="{{'row'+rowIndex}}"
                           (click)="rowClick(rows, rowIndex)">
-                        <td *ngIf="checkboxSelect" style="width: 10%">
-                          <input type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}"
+                        <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
+                          <input class="amexio-checkbox" type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}"
                                  [attr.checked]="selectAll? true: null" (click)="setSelectedRow(rows, $event)">
+                          <label for="checkbox-{{elementId}}-{{rowIndex}}"></label>
                         </td>
                         <td [attr.colspan]="columns?.length-1">
                           <div class="amexio-datatable-small-word-wrap" *ngFor="let cols of columns"
@@ -315,9 +320,10 @@ declare var $;
             <tr [ngClass]="{'hiderow' : !(viewRows?.length > 0),'showrow' : viewRows?.length > 0}"
                 style="cursor: pointer" *ngFor="let row of viewRows let rowIndex = index " id="{{'row'+rowIndex}}"
                 (click)="rowClick(row, rowIndex)" [class.info]="isSelected(rowIndex)">
-              <td *ngIf="checkboxSelect" style="width: 10%">
-                <input type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}" [attr.checked]="selectAll? true: null"
+              <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
+                <input class="amexio-checkbox" type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}" [attr.checked]="selectAll? true: null"
                        (click)="setSelectedRow(row, $event)">
+                <label for="checkbox-{{elementId}}-{{rowIndex}}"></label>
               </td>
               <td>
                 <div class="amexio-datatable-small-word-wrap" *ngFor="let cols of columns" [hidden]="cols.hidden">
@@ -349,18 +355,7 @@ declare var $;
       table-layout: fixed;
       margin-bottom: 1px;
     }
-
-    table tr td {
-      border-left: 0;
-      border-right: 0;
-      width: 90%;
-      word-wrap: break-word;
-    }
-
-    table.head tr td {
-      background: #eee;
-    }
-
+    
     .amexio-datatable-width {
       width: 100%;
     }
@@ -423,6 +418,15 @@ declare var $;
       font-weight: 500;
       line-height: 16px;
     }
+    .amexio-datatable-checkbox{
+      width: 50px!important;vertical-align: middle!important;
+    }
+    table tr td {
+      border-left: 0;
+      border-right: 0;
+      word-wrap: break-word;
+    }
+    
   `]
 
 })
@@ -509,6 +513,8 @@ export class DataTableComponent implements OnInit, AfterContentInit, AfterViewIn
 
   rowId: any;
 
+  headerCheckboxId:string;
+
   @ContentChildren(ColumnComponent) columnRef: QueryList<ColumnComponent>;
 
   constructor(private dataTableSevice: CommonHttpService, private cd: ChangeDetectorRef) {
@@ -523,6 +529,7 @@ export class DataTableComponent implements OnInit, AfterContentInit, AfterViewIn
     this.smallScreen = false;
     this.sortBy = -1;
     this.randomIDCheckALL = 'checkall-' + Math.floor(Math.random() * 90000) + 10000;
+    this.headerCheckboxId="checkbox-header"+ Math.floor(Math.random() * 90000) + 10000;
   }
 
   ngOnInit() {
