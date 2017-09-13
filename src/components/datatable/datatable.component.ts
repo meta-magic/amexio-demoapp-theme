@@ -797,7 +797,7 @@ export class DataTableComponent implements OnInit, AfterContentInit, AfterViewIn
           this.pageNumbers.push(pageNo);
         }
     }
-    if (this.pageSize > 1) {
+    if (this.pageSize >= 1) {
       const rowsTemp = this.data;
       const newRows = [];
       let startIndex = 0;
