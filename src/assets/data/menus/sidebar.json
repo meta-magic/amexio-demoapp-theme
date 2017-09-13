@@ -4,7 +4,8 @@
     "text": "Home",
     "icon" : "fa fa-home fa-fw fa-lg",
     "mdbIcon" : "home",
-    "routerLink" : "/home/dashboard"
+    "routerLink" : "/home/dashboard",
+    "selected":true
   },
     {
       "text": "Email",

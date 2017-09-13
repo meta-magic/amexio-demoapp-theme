@@ -334,6 +334,7 @@ body{
   width: 100%;
   font-size: 20px;
   font-weight: 500!important;
+  border-radius: 0px;
 }
 /*check box label*/
 .form-check-label{
