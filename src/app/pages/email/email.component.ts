@@ -67,7 +67,6 @@ export class EmailComponent implements OnInit {
   }
   ngOnInit() {
     if(this.themeService.themeName=="Default"){
-      debugger
       this.data=[
         {
           "text": "Inbox",
@@ -111,7 +110,6 @@ export class EmailComponent implements OnInit {
         }
       ]
     }else if(this.themeService.themeName=="MDB"){
-      debugger;
       this.data=[
         {
           "text": "Inbox",

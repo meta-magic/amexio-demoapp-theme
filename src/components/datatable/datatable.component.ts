@@ -40,91 +40,48 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
 declare var $;
 @Component({
   selector: 'amexio-data-table', template: `
-      <ng-content></ng-content>
+    <ng-content></ng-content>
     <div class="amexio-datatable-wrap" [ngClass]="cClass">
       <table class="table table-sm  table-bordered amexio-datatable-width" [attr.id]="elementId"
              (window:resize)="onResize($event)">
         <tr style="height: 60px;" [ngClass]="tableTitlecClass">
-          <td style="vertical-align: middle" [attr.colspan]="columns?.length + (checkboxSelect? 1: 0)" width="100%" data align="right">
-        <span class="amexio-datatable-title" >
+          <td style="vertical-align: middle" [attr.colspan]="columns?.length + (checkboxSelect? 1: 0)" width="100%" data
+              align="right">
+        <span class="amexio-datatable-title">
       <b>{{title}}</b>
       </span>
+            <!--Datatable Top Toolbar-->
             <span class="col-xs-12 amexio-datatable-opertions">
-        <div class="btn-group btn-group-sm" role="group" aria-label="Button group with nested dropdown">
-            <ng-container *ngIf="groupByColumn && !smallScreen">
-                   <amexio-dropdown [(ngModel)]="groupByColumnIndex"
-                                    [placeholder]="'Choose Column'"
-                                    name="groupByColumnIndex"
-                                    [dataReader]="'response.data'"
-                                    [data]="dropdownData"
-                                    [displayField]="'text'"
-                                    [valueField]="'dataIndex'"
-                                    (onSingleSelect)="setColumnData()">
-                   </amexio-dropdown>
-               </ng-container>
-          <ng-container *ngIf="maxPage > 1">
-            <span style="padding: 2px">
-                Page no :   &nbsp;
-              
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-            {{currentPage}}
-            </button>
-            <div class="dropdown-menu">
-              <a *ngFor="let row of pageNumbers let pageNo = index " class="dropdown-item"
-                 (click)="setPageNo(pageNo+1)">{{pageNo + 1}}</a>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Button group with nested dropdown">
+               <ng-container *ngIf="groupByColumn && !smallScreen">
+            <amexio-dropdown [(ngModel)]="groupByColumnIndex"
+                 [placeholder]="'Choose Column'"
+                 name="groupByColumnIndex"
+                 [dataReader]="'response.data'"
+                 [data]="dropdownData"
+                 [displayField]="'text'"
+                 [valueField]="'dataIndex'"
+                 (onSingleSelect)="setColumnData()">
+                 </amexio-dropdown>
+          </ng-container>
+            <span class="nav-item ">
+            <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <span style="font-size: 18px;">&#x2630;</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" *ngFor="let cols of columns;let i = index;">
+            <label class="form-check-label">
+            <input [attr.id]="headerCheckboxId+i" class="amexio-checkbox" type="checkbox"
+            (click)="setColumnVisiblity(cols.dataIndex)" [attr.checked]="!cols.hidden ? true: null"> 
+            <label [attr.for]="headerCheckboxId+i">{{cols.text + " "}}</label> 
+            </label>
+            </a>
             </div>
-              <ng-container *ngIf="currentPage==1 && !groupByColumn">
-               1- {{pageSize}} of {{this.data.length}}
-           </ng-container>
-              <!--groupby with only one page-->
-               <ng-container *ngIf="currentPage==1 && groupByColumn">
-               1- {{this.data.length}} of {{this.data.length}}
-           </ng-container>
-              
-           <ng-container *ngIf="((pageSize*currentPage) < (this.data.length)) && (currentPage!=1)">
-               {{(pageSize * (currentPage - 1)) + 1}} - {{pageSize * currentPage}} of {{this.data.length}}
-           </ng-container>
-              <ng-container *ngIf="((pageSize*currentPage) > (this.data.length)) && !groupByColumn">
-                {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
-           </ng-container>
-               <ng-container *ngIf=" (pageSize*currentPage) == (this.data.length) ">
-                {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
-           </ng-container>
-              &nbsp;
-              <span style="font-size: 18px;" (click)="prev()">&#x276E;</span>
-               <span style="font-size: 18px;" (click)="next()">&#x2771;</span>
+            </span>
+            </div>
             </span>
             
-            <span class="nav-item ">
-        <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span style="font-size: 18px;">&#x2630;</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" *ngFor="let cols of columns;let i = index;">
-             <label class="form-check-label">
-              <input [attr.id]="headerCheckboxId+i" class="amexio-checkbox" type="checkbox" (click)="setColumnVisiblity(cols.dataIndex)" [attr.checked]="!cols.hidden ? true: null"> 
-             <label [attr.for]="headerCheckboxId+i">{{cols.text +" "}}</label> 
-             </label>
-          </a>
-        </div>
-      </span>
-
-
-            <!--    <button style="padding: 2px" type="button" class="btn btn-secondary dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-                </button>
-                 <div class="dropdown-menu dropdown-menu-right">
-                   <a class="dropdown-item"><b> </b></a>
-                   <a class="dropdown-item" *ngFor="let cols of columns;let i = index;">
-                   <label class="form-check-label">
-                   <input class="form-check-input" type="checkbox" (click)="setColumnVisiblity(cols.dataIndex)" [attr.checked]="!cols.hidden ? true: null"> {{cols.text +" "}}
-                   </label>
-                   </a>
-                 </div>-->
-          </ng-container>
-        </div>
-      </span>
           </td>
         </tr>
         <tr *ngIf="smallScreen && groupByColumn">
@@ -148,7 +105,7 @@ declare var $;
         <tr [ngClass]="tableHeadercClass" *ngIf="filtering && !groupByColumn">
           <ng-container *ngIf="!smallScreen">
             <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox"></td>
-            <td  *ngFor="let cols of columns let index=index" [hidden]="cols.hidden">
+            <td *ngFor="let cols of columns let index=index" [hidden]="cols.hidden">
               <amexio-filter-component [column]="cols"
                                        (filterObject)="getFilteredData($event)"></amexio-filter-component>
             </td>
@@ -166,10 +123,12 @@ declare var $;
       <table class="table table-sm  table-hover  table-bordered ">
         <tr *ngIf="!smallScreen">
           <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
-            <input [attr.id]="headerCheckboxId" class="amexio-checkbox" type="checkbox" (click)="selectAllVisibleRows()">
+            <input [attr.id]="headerCheckboxId" class="amexio-checkbox" type="checkbox"
+                   (click)="selectAllVisibleRows()">
             <label [attr.for]="headerCheckboxId"></label>
           </td>
-          <td style="height: 50px;vertical-align: middle" [ngClass]="tableHeadercClass" *ngFor="let cols of columns let index=index" [hidden]="cols.hidden" (click)="sortOnColHeaderClick(cols)">
+          <td style="height: 50px;vertical-align: middle" [ngClass]="tableHeadercClass"
+              *ngFor="let cols of columns let index=index" [hidden]="cols.hidden" (click)="sortOnColHeaderClick(cols)">
 
             <!-- If user hasnt embedded view -->
             <ng-container *ngIf="!cols?.headerTemplate"><b>{{cols.text}}</b></ng-container>
@@ -177,7 +136,7 @@ declare var $;
             <ng-container *ngIf="this.sortBy==1 && cols.isColumnSort">
               &nbsp; <i class="fa fa-arrow-up"></i>
             </ng-container>
-            <ng-container *ngIf="this.sortBy==2 && cols.isColumnSort" >
+            <ng-container *ngIf="this.sortBy==2 && cols.isColumnSort">
               &nbsp;<i class="fa fa-arrow-down"></i>
             </ng-container>
 
@@ -208,9 +167,10 @@ declare var $;
                   <div [attr.id]="i" class="sublinks collapse ">
                     <table class="table table-hover ">
                       <tbody>
-                      <tr class="amexio-datatable-row" *ngFor="let rows of row.groupData let rowIndex = index" id="{{'row'+rowIndex}}"
+                      <tr class="amexio-datatable-row" *ngFor="let rows of row.groupData let rowIndex = index"
+                          id="{{'row'+rowIndex}}"
                           (click)="rowClick(rows, rowIndex)">
-                        <td  *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
+                        <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
                           <input class="amexio-checkbox" type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}"
                                  [attr.checked]="selectAll? true: null" (click)="setSelectedRow(rows, $event)">
                           <label for="checkbox-{{elementId}}-{{rowIndex}}"></label>
@@ -235,20 +195,24 @@ declare var $;
             </tr>
           </ng-container>
           <ng-container *ngIf="!groupByColumn">
-            <tr  *ngIf="viewRows?.length==0">
+            <tr *ngIf="viewRows?.length==0">
               <td class="amexio-datatable-width">
                 <span>No Records Found</span>
               </td>
             </tr>
-            <tr [ngClass]="tableDatacClass" [ngClass]="{'hiderow' : !(viewRows?.length > 0),'showrow ' : viewRows?.length > 0}"
-                style="cursor: pointer; height: 50px;" *ngFor="let row of viewRows let rowIndex = index " id="{{'row'+rowIndex}}"
+            <tr [ngClass]="tableDatacClass"
+                [ngClass]="{'hiderow' : !(viewRows?.length > 0),'showrow ' : viewRows?.length > 0}"
+                style="cursor: pointer; height: 50px;" *ngFor="let row of viewRows let rowIndex = index "
+                id="{{'row'+rowIndex}}"
                 (click)="rowClick(row, rowIndex)" [class.info]="isSelected(rowIndex)">
               <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
-                <input class="amexio-checkbox" type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}" [attr.checked]="selectAll? true: null"
+                <input class="amexio-checkbox" type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}"
+                       [attr.checked]="selectAll? true: null"
                        (click)="setSelectedRow(row, $event)">
                 <label for="checkbox-{{elementId}}-{{rowIndex}}"></label>
               </td>
-              <td *ngFor="let cols of columns let index=index" [hidden]="cols.hidden" style="vertical-align: middle !important;">
+              <td *ngFor="let cols of columns let index=index" [hidden]="cols.hidden"
+                  style="vertical-align: middle !important;">
                 <!-- If user hasnt specified customized cell use default -->
                 <ng-container *ngIf="cols.dataType=='number'"><span style="float: right">{{row[cols.dataIndex]}}</span>
                 </ng-container>
@@ -282,7 +246,8 @@ declare var $;
                   <div [attr.id]="i" class="sublinks collapse">
                     <table class="table table-bordered">
                       <tbody>
-                      <tr class="amexio-datatable-row" *ngFor="let rows of row.groupData let rowIndex = index" id="{{'row'+rowIndex}}"
+                      <tr class="amexio-datatable-row" *ngFor="let rows of row.groupData let rowIndex = index"
+                          id="{{'row'+rowIndex}}"
                           (click)="rowClick(rows, rowIndex)">
                         <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
                           <input class="amexio-checkbox" type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}"
@@ -318,7 +283,8 @@ declare var $;
                 style="cursor: pointer" *ngFor="let row of viewRows let rowIndex = index " id="{{'row'+rowIndex}}"
                 (click)="rowClick(row, rowIndex)" [class.info]="isSelected(rowIndex)">
               <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
-                <input class="amexio-checkbox" type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}" [attr.checked]="selectAll? true: null"
+                <input class="amexio-checkbox" type="checkbox" id="checkbox-{{elementId}}-{{rowIndex}}"
+                       [attr.checked]="selectAll? true: null"
                        (click)="setSelectedRow(row, $event)">
                 <label for="checkbox-{{elementId}}-{{rowIndex}}"></label>
               </td>
@@ -341,6 +307,47 @@ declare var $;
           </tbody>
         </table>
       </div>
+
+      <!--Datatable Bottom ToolBar-->
+      <div class="row pagination-outer" style="float: right;">
+        <div class="pagination"> <span style="padding-top: 10px">Page no</span>
+          <span class="col-xs-12 amexio-datatable-opertions">
+          <div class="btn-group btn-group-sm dropup" role="group" aria-label="Button group with nested dropdown">
+          <ng-container *ngIf="maxPage > 1">
+         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                 aria-expanded="false">
+          {{currentPage}}
+          </button>
+          <div class="dropdown-menu">
+          <a *ngFor="let row of pageNumbers let pageNo = index " class="dropdown-item"
+             (click)="setPageNo(pageNo+1)">{{pageNo + 1}}</a>
+          </div>
+          <span style="padding-top: 10px;padding-left: 5px">
+            <ng-container *ngIf="currentPage==1 && !groupByColumn">
+          1- {{pageSize}} of {{this.data.length}}
+          </ng-container>
+            <!--groupby with only one page-->
+          <ng-container *ngIf="currentPage==1 && groupByColumn">
+          1- {{this.data.length}} of {{this.data.length}}
+          </ng-container>
+          
+          <ng-container *ngIf="((pageSize*currentPage) < (this.data.length)) && (currentPage!=1)">
+          {{(pageSize * (currentPage - 1)) + 1}} - {{pageSize * currentPage}} of {{this.data.length}}
+          </ng-container>
+          <ng-container *ngIf="((pageSize*currentPage) > (this.data.length)) && !groupByColumn">
+          {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
+          </ng-container>
+          <ng-container *ngIf=" (pageSize*currentPage) == (this.data.length) ">
+          {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
+          </ng-container>
+          </span>
+          <span style="font-size: 18px;margin-left: 10px;padding-top: 10px;" (click)="prev()">&#x276E;</span>
+          <span style="font-size: 18px;padding-top: 10px;" (click)="next()">&#x2771;</span>
+          </ng-container>
+          </div>
+          </span>
+        </div>
+      </div>
     </div>
   `, providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR, CommonHttpService], styles: [`
     .amexio-datatable-wrap {
@@ -352,7 +359,7 @@ declare var $;
       table-layout: fixed;
       margin-bottom: 1px;
     }
-    
+
     .amexio-datatable-width {
       width: 100%;
     }
@@ -396,18 +403,21 @@ declare var $;
     .amexio-datatable-float-right {
       float: right;
     }
-    .amexio-datatable-row{
-      height:40px;
+
+    .amexio-datatable-row {
+      height: 40px;
       border-bottom: 1px solid #E0E0E0;
       font-size: 13px;
       background-color: #fff;
     }
-    .amexio-datatable-row:hover{
+
+    .amexio-datatable-row:hover {
       background-color: #eee;
     }
-    .amexio-datatable-groupbyseperator{
-      height:40px;
-      border-bottom: 1px solid #E0E0E0!important;
+
+    .amexio-datatable-groupbyseperator {
+      height: 40px;
+      border-bottom: 1px solid #E0E0E0 !important;
       padding: 12px 24px 0px 5px;
       color: #6F6F6F;
       font-size: 14px;
@@ -415,15 +425,18 @@ declare var $;
       font-weight: 500;
       line-height: 16px;
     }
-    .amexio-datatable-checkbox{
-      width: 50px!important;vertical-align: middle!important;
+
+    .amexio-datatable-checkbox {
+      width: 50px !important;
+      vertical-align: middle !important;
     }
+
     table tr td {
       border-left: 0;
       border-right: 0;
       word-wrap: break-word;
     }
-    
+
   `]
 
 })
@@ -510,7 +523,7 @@ export class DataTableComponent implements OnInit, AfterContentInit, AfterViewIn
 
   rowId: any;
 
-  headerCheckboxId:string;
+  headerCheckboxId: string;
 
   @ContentChildren(ColumnComponent) columnRef: QueryList<ColumnComponent>;
 
@@ -526,7 +539,7 @@ export class DataTableComponent implements OnInit, AfterContentInit, AfterViewIn
     this.smallScreen = false;
     this.sortBy = -1;
     this.randomIDCheckALL = 'checkall-' + Math.floor(Math.random() * 90000) + 10000;
-    this.headerCheckboxId="checkbox-header"+ Math.floor(Math.random() * 90000) + 10000;
+    this.headerCheckboxId = "checkbox-header" + Math.floor(Math.random() * 90000) + 10000;
   }
 
   ngOnInit() {
