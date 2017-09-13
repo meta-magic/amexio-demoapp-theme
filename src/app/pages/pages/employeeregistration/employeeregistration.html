@@ -6,26 +6,33 @@
       </amexio-pane-header>
       <amexio-pane-body>
         <amexio-tab-pane>
-          <amexio-tab title="Profile" [active]="true" [icon]="'fa fa-user-circle'">
-            <div class="row">
+          <amexio-tab title="Profile" [active]="true">
+            <div class="row" >
               <div class="col-lg-6">
                 <amexio-text-input [fieldLabel]="'First Name'" name="fname"
-                                   [placeholder]="'First name'"
-                                   [iconFeedBack]="true">
+                                   [placeholder]="'Enter name'"
+                                   [enablePopOver]="true"
+                                   [allowBlank]="false"
+                                   [errorMsg]="'Please enter first name'"
+                                   [minLength]="3" [maxLength]="15" [minErrorMsg]="'First name should be minimum 3 characters'"
+                                   [maxErrorMsg]="'First name should be less than 15 characters'"
+                >
                 </amexio-text-input>
               </div>
               <div class="col-lg-6">
                 <amexio-text-input [fieldLabel]="'Surname'" name="lname"
-                                   [placeholder]="'Surname'"
-                                   [iconFeedBack]="true">
+                                   [placeholder]="'Enter surname'"
+                                   [enablePopOver]="true"
+                                   [allowBlank]="false"
+                                   [errorMsg]="'Please enter Surname'"
+                                   [minLength]="3" [maxLength]="15" [minErrorMsg]="'Surname should be minimum 3 characters'"
+                                   [maxErrorMsg]="'Surname should be less than 15 characters'"
+                >
                 </amexio-text-input>
               </div>
               <div class="col-lg-6">
-                <label
-                  class="control-label">
-                Date of Birth
-                </label>
                 <amexio-date-time-picker
+                  [fieldLabel]="'Date of Birth'"
                   [timepicker]="false"
                   [datepicker]="datepickerOpts"
                   [(ngModel)]="currentDate">
@@ -33,28 +40,40 @@
               </div>
               <div class="col-lg-6">
                 <amexio-text-input [fieldLabel]="'Phone'" name="phone"
-                                   [placeholder]="'Phone'"
-                                   [iconFeedBack]="true">
+                                   [placeholder]="'Enter phone number'"
+                                   [enablePopOver]="true"
+                                   [allowBlank]="false"
+                                   [errorMsg]="'Please enter phone number'"
+                                   [minLength]="10" [minErrorMsg]="'Phone number should be 10 digits.'"
+                >
                 </amexio-text-input>
               </div>
               <div class="col-lg-6">
                 <amexio-password-input
                   [fieldLabel]="'Password'" name="password"
-                  [placeholder]="' Password'"
-                  [iconFeedBack]="true"
+                  [placeholder]="'Enter password'"
+                  [enablePopOver]="true"
+                  [allowBlank]="false"
+                  [errorMsg]="'Please enter Password'"
+                  [minLength]="5" [minErrorMsg]="'Password length should be grater than 5'"
+                  [minLength]="10" [minErrorMsg]="'Password length should be less than 10'"
                 ></amexio-password-input>
               </div>
               <div class="col-lg-6">
                 <amexio-password-input
                   [fieldLabel]="'Confirm Password'" name="confirmpassword"
-                  [placeholder]="'Confirm Password'"
-                  [iconFeedBack]="true"
+                  [placeholder]="'Enter confirm password'"
+                  [enablePopOver]="true"
+                  [allowBlank]="false"
+                  [errorMsg]="'Please enter confirm password'"
+                  [minLength]="5" [minErrorMsg]="'Password length should be grater than 5'"
+                  [minLength]="10" [minErrorMsg]="'Password length should be less than 10'"
                 ></amexio-password-input>
               </div>
             </div>
           </amexio-tab>
-          <amexio-tab title="Address" [icon]="'fa fa-address-card'">
-            <div class="row">
+          <amexio-tab title="Address" >
+            <div class="row" >
               <div class="col-lg-4">
                 <amexio-dropdown
                   [(ngModel)]="countryName"
@@ -66,7 +85,7 @@
                   [httpMethod]="'get'"
                   [displayField]="'countryName'"
                   [valueField]="'countryId'"
-                  [width]="'250px'"
+                  [width]="'100%'"
                   (onSingleSelect)="getCountry($event)">
                 </amexio-dropdown>
               </div>
@@ -81,7 +100,7 @@
                   [httpMethod]="'get'"
                   [displayField]="'stateName'"
                   [valueField]="'stateCode'"
-                  [width]="'250px'"
+                  [width]="'100%'"
                   (onSingleSelect)="getState($event)">
                 </amexio-dropdown>
               </div>
@@ -96,36 +115,44 @@
                   [httpMethod]="'get'"
                   [displayField]="'cityName'"
                   [valueField]="'cityCode'"
-                  [width]="'250px'"
+                  [width]="'100%'"
                   (onSingleSelect)="getCity($event)">
                 </amexio-dropdown>
              <br> </div>
+            </div>
+              <div class="row">
               <div class="col-lg-6">
                 <amexio-textarea-input [fieldLabel]="'Address1'" name="Address1"
-                                       [placeholder]="'Address 1'"
+                                       [placeholder]="'Enter address 1'"
+                                       [enablePopOver]="true"
                                        [allowBlank]="true" [errorMsg]="'Please enter Address 1'"
-                                       [iconFeedBack]="true" [noOfrows]="'4'" [noOfCols]="'2'"
+                                        [noOfrows]="'2'" [noOfCols]="'2'"
                                        [popoverPlacement]="'top'">
                 </amexio-textarea-input>
               </div>
               <div class="col-lg-6">
                 <amexio-textarea-input [fieldLabel]="'Address2'" name="Address2"
-                                       [placeholder]="'Address 2'"
+                                       [placeholder]="'Enter address 2'" [enablePopOver]="true"
                                        [allowBlank]="true" [errorMsg]="'Please enter Address 2'"
-                                       [iconFeedBack]="true" [noOfrows]="'4'" [noOfCols]="'2'"
+                                       [noOfrows]="'2'" [noOfCols]="'2'"
                                        [popoverPlacement]="'top'">
                 </amexio-textarea-input>
               </div>
-              <div class="col-lg-4">
+              </div>
+              <div class="row">
+              <div class="col-lg-6">
                 <amexio-text-input [fieldLabel]="'Pincode'" name="pincode"
-                                   [placeholder]="'Pincode'"
-                                   [maxLength]="6"
+                                   [placeholder]="'Enter pincode'"
                                    [errorMsg]="'Please enter pincode'"
-                                   [maxErrorMsg]="'Please enter correct pincode'"
-                                   [iconFeedBack]="true">
+                                   [minLength]="6" [enablePopOver]="true"
+                                   [allowBlank]="false"
+                                   [minErrorMsg]="'Pincode should be 6 digits.'"
+                                   [maxLength]="6"  [maxErrorMsg]="'Pincode should be 6 digits.'"
+                                   >
                 </amexio-text-input>
               </div>
-              <div class="col-lg-6"></div>
+              <div class="col-lg-6">
+              </div>
             </div>
           </amexio-tab>
         </amexio-tab-pane>

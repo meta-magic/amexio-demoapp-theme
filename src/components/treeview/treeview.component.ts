@@ -25,11 +25,16 @@ import {CommonHttpService} from '../common.http.service';
             <div class="loading-mask amexio-treeview-loadingmask" >
             </div>
         </div>
-
+        
         <ul class="amexio-treeview-ul" *ngIf="data.length > 0">
             <li style="cursor: pointer" *ngFor="let treeData of data">
                 <div >
-                    <span class="fa " [ngClass]="{'fa-minus': treeData.expanded, 'fa-plus': (!treeData.expanded && treeData.children)}" (click)="toggle(treeData)"> </span>
+                    <ng-container *ngIf="(!treeData.expanded && treeData.children)">
+                      <span style="vertical-align: top;font-size: 20px;" (click)="toggle(treeData)">&#x2795;</span>
+                    </ng-container>
+                  <ng-container *ngIf="treeData.expanded">
+                    <span style="vertical-align: top;font-size: 20px;" (click)="toggle(treeData)">&#x2796;</span>
+                  </ng-container>
                     <span *ngIf="enableCheckBox">
                     <input type="checkbox" [checked]="'checked'?treeData.checked:null" (click)="emitCheckedData(treeData)"/>                    
                   </span>

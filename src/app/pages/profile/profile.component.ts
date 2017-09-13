@@ -2,6 +2,7 @@
  * Created by sagar on 3/8/17.
  */
 import { Component, OnInit } from '@angular/core';
+import {ThemeService} from "../../theme.service";
 
 @Component({
   selector: 'profile',
@@ -10,12 +11,10 @@ import { Component, OnInit } from '@angular/core';
 
 export class ProfileComponent implements OnInit {
   public max:number = 10;
-  public rate:number = 9;
-  public isReadonly:boolean = false;
-  public isPercent:boolean = true;
+  themeName:string;
   bindData : any;
-
-  constructor() {
+  iconArray:any[]=[];
+  constructor(private themeService:ThemeService) {
     this.bindData ={
       "response": {
         "success": true,
@@ -103,5 +102,11 @@ export class ProfileComponent implements OnInit {
       }
     };
   }
-  ngOnInit() { }
+  ngOnInit() {
+    if(this.themeService.iconArray){
+      if(this.themeService.iconArray[0].iconId==1){
+        this.iconArray=this.themeService.iconArray[0].iconsArray;
+      }
+    }
+  }
 }

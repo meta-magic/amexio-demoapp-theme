@@ -57,3 +57,107 @@
 .a-link:hover{
   color: #0c84e4 !important;
 }
+
+/*Profile*/
+
+/*Profile */
+.img-responsive {
+  max-width: 100%;
+  width: 100%;
+}
+.imagepanel {
+  background-color: cornflowerblue;
+}
+.half {
+  float: left;
+  overflow: hidden;
+}
+.first-35 {
+  padding: 0px 10px 10px 0px;
+  width: 35%;
+}
+/*panel action*/
+.actionpanel {
+  padding: 12px 16px 12px 16px;
+  height: 48px;
+}
+.actionpanel .iconbuttons {
+  float: left;
+  text-align: left;
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  text-align: center;
+  padding: 4px;
+}
+.actionpanel .links {
+  float: right;
+  text-align: right;
+  padding-top: 5px
+}
+.actionpanel .links a {
+  font-size: 13px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(38,166,154,0.87);
+}
+.mainpanel {
+  width: 100%;
+  padding: 19px 16px 19px 16px;
+  overflow: hidden;
+  color: rgba(0,0,0,0.87);
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.mainpanel .title {
+  font-size: 24px!important;
+  line-height: 28px!important;
+  color: rgba(38,166,154,0.87) !important;
+  margin-bottom: 10px!important;
+  display: block
+}
+.mainpanel .subtitle {
+  color: rgba(0,0,0,0.54) !important;
+  line-height: 18px!important;
+  font-size: 14px!important;
+}
+.mainpanel a {
+  color: rgba(0,0,0,0.87);
+}
+
+.amexio-listbox-list li img {
+  width: 52px;
+  height: 52px;
+  border-radius: 200px;
+  margin-right: 20px;
+  float: left;
+}
+
+/* ----------------------------------- */
+/* COMPONENT - CONTACT LIST - MINI */
+/* ----------------------------------- */
+
+.contact-list-mini .title {
+  float: left;
+  font-size: 13px;
+  color: rgba(0,0,0,0.87);
+  padding-top: 8px;
+  font-weight: 500;
+}
+
+/*Treeview items*/
+.amexio-treeview-ul{
+  padding-left: 30px!important;
+}
+
+.amexio-tree-view-label{
+  text-decoration: none !important;
+  color: rgba(0,0,0,0.87) !important;
+  display: table-cell!important;
+  vertical-align: middle!important;
+  padding: 0px 0px 5px 5px;
+  font-weight: 500;
+  font-size: 14px;
+}

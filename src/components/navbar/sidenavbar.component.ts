@@ -142,7 +142,6 @@ import {CommonHttpService} from "../common.http.service";
       .amexio-sidenavbar-nav-link-a{
           padding-left: 10px;
           padding-right: 10px;
-
       }
       .amexio-sidenavbar-child-header{
           float: right;

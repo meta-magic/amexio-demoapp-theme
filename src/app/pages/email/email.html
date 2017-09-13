@@ -6,21 +6,36 @@
       </amexio-pane-header>
       <amexio-pane-body>
         <div class="row">
-          <div class="col-lg-2">
-            <div style="text-align: left">
+          <div class="col-lg-3">
+            <div style="text-align: center;padding-bottom: 10px">
               <amexio-btn [label]="'Compose'" [type]="'danger'" [size]="'small'"[tooltipMessage]="'Compose'" (click)="toggle()"></amexio-btn>
             </div>
-            <br>
-            <amexio-tree-view [dataReader]="'data'" [httpMethod]="'get'"
-                              [httpUrl]="'assets/data/emailmenu.json'"
+            <amexio-tree-view [dataTableBindData]="data"
                               (selectedRecord)="onRowSelect($event)">
               <ng-template #amexioTreeTemplate let-tree let-icon="icon" let-node="node">
-                <i [attr.class]="node.icon"></i> &nbsp; {{tree.text}}
+                <div class="d-flex justify-content-center">
+                  <ng-container *ngIf="node.materialIcon">
+                    <i class="material-icons md-dark">{{node.materialIcon}}</i>
+                  </ng-container>
+                  <ng-container *ngIf="node.icon">
+                    <i [attr.class]="node.icon"></i>
+                  </ng-container>
+                  &nbsp; <a class="amexio-tree-view-label">{{tree.text}}</a>
+                </div>
               </ng-template>
             </amexio-tree-view>
+            <amexio-listbox [data]="bindData" [filter]="true"
+                            [enableCheckbox] = "false" [dataReader]="'response.data'"
+                            [displayField]="'name'">
+              <ng-template #amexioBodyTmpl let-row="row">
+                <div class="contact-list-mini">
+                    <img src="assets/images/profile/{{row.profile}}">
+                    <div class="title">{{row.name}}</div>
+                </div>
+              </ng-template>
+            </amexio-listbox>
           </div>
-          <br>
-          <div class="col-lg-10">
+          <div class="col-lg-9">
             <amexio-data-table
               [title]="'Inbox'"
               [pageSize] = "15"
@@ -62,9 +77,8 @@
                            [hasLabel]="false"
                            [placeholder]="'Subject'">
         </amexio-text-input>
-      </div>
-      <div class="col-lg-12">
-        <amexio-textarea-input [fieldLabel]="'Content'"  [placeholder]="''" [noOfrows]="12" [noOfCols]="3"></amexio-textarea-input>
+        <amexio-textarea-input [fieldLabel]="'Content'"  [noOfrows]="3" [noOfCols]="3"></amexio-textarea-input>
+
       </div>
     </div>
   </amexio-pane-body>
