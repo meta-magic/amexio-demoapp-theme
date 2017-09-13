@@ -150,24 +150,22 @@ declare var $;
         <table class="table table-sm   table-bordered ">
           <tbody *ngIf="!smallScreen">
           <ng-container *ngIf="groupByColumn">
-            <tr [ngClass]="{'hiderow' : !(viewRows?.length > 0),'showrow' : viewRows?.length > 0}">
+            <tr  [ngClass]="{'hiderow' : !(viewRows?.length > 0),'showrow' : viewRows?.length > 0}">
               <td [attr.colspan]="columns?.length + (checkboxSelect? 1: 0)" width="100%">
-                <ul class="list-group" *ngFor="let row of viewRows;let i=index;">
-              <span (click)="iconSwitch(row)" style="cursor: pointer;" data-toggle="collapse" [attr.data-target]="'#'+i"
-                    data-parent="#menu">
-          
-                 <span style="width: 100%" class="fa amexio-datatable-groupbyseperator "
-                       [ngClass]="{'fa-caret-down':row.expanded,'fa-caret-right':!row.expanded}">
-                   {{row.group}}
-                      <span style="float: right" class="badge badge-default badge-pill">{{row.groupData?.length}}</span>
-                    </span>
-              </span>
+                <div class="list-group" *ngFor="let row of viewRows;let i=index;">
+                <div class="amexio-datatable-groupbyseperator" (click)="iconSwitch(row)" style="cursor: pointer;" data-toggle="collapse" [attr.data-target]="'#'+i" data-parent="#menu">
+                  <ng-container *ngIf="!row.expanded">&#x25B6;</ng-container>
+                    <ng-container *ngIf="row.expanded">&#x25BC;</ng-container>
+                  <label>{{row.group}}</label>
+                  <span style="float: right; vertical-align: bottom;" class="badge badge-default badge-pill">{{row.groupData?.length}}</span>
+                      
+                </div>
 
 
                   <div [attr.id]="i" class="sublinks collapse ">
                     <table class="table table-hover ">
                       <tbody>
-                      <tr class="amexio-datatable-row" *ngFor="let rows of row.groupData let rowIndex = index"
+                      <tr [ngClass]="tableDatacClass"  *ngFor="let rows of row.groupData let rowIndex = index"
                           id="{{'row'+rowIndex}}"
                           (click)="rowClick(rows, rowIndex)">
                         <td *ngIf="checkboxSelect" class="amexio-datatable-checkbox">
@@ -175,7 +173,7 @@ declare var $;
                                  [attr.checked]="selectAll? true: null" (click)="setSelectedRow(rows, $event)">
                           <label for="checkbox-{{elementId}}-{{rowIndex}}"></label>
                         </td>
-                        <td style="padding-top: 10px" *ngFor="let cols of columns" [hidden]="cols.hidden">
+                        <td *ngFor="let cols of columns" [hidden]="cols.hidden">
                           <!-- If user hasnt specified customized cell use default -->
                           <ng-container *ngIf="!cols?.bodyTemplate">{{rows[cols.dataIndex]}}</ng-container>
                           <!-- else insert customized code -->
@@ -186,7 +184,7 @@ declare var $;
                       </tbody>
                     </table>
                   </div>
-                </ul>
+                </div>
               </td>
             </tr>
             <tr *ngIf="viewRows?.length == 0">
@@ -231,7 +229,7 @@ declare var $;
           </tbody>
           <tbody *ngIf="smallScreen">
           <ng-container *ngIf="groupByColumn">
-            <tr [ngClass]="{'hiderow' : !(viewRows?.length > 0),'showrow' : viewRows?.length > 0}">
+            <tr  [ngClass]="{'hiderow' : !(viewRows?.length > 0),'showrow' : viewRows?.length > 0}">
               <td [attr.colspan]="columns?.length + (checkboxSelect? 1: 0)" width="100%">
                 <div class="list-group amexio-datatable-list-group" *ngFor="let row of viewRows;let i=index;">
               <span (click)="iconSwitch(row)" style="cursor: pointer;" data-toggle="collapse" [attr.data-target]="'#'+i"

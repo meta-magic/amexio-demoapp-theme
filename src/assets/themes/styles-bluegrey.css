@@ -196,21 +196,25 @@ body{
   height:48px;
   border-bottom: 1px solid #E0E0E0;
   font-weight: 500;
-  padding: 12px 24px 0px 24px;
+  padding: 12px 24px 0px 24px!important;
   text-align: left;
 
 }
 .datagridrow{
   height:48px;
   border-bottom: 1px solid #E0E0E0;
-  padding: 16px 24px 0px 24px!important;
+
   background-color: #fff;
+}
+
+.datagridrow td{
+  padding: 16px 24px 0px 24px!important;
 }
 .datagridrow:hover{
   background-color: #eee;
 }
 .groupbyseperator{
-  height:40px;
+  height:48px;
   border-bottom: 1px solid #E0E0E0!important;
   padding: 12px 24px 0px 24px;
   color: #6F6F6F;
@@ -218,6 +222,20 @@ body{
   font-weight: 500;
   line-height: 16px;
 }
+
+/*
+.amexio-datatable-groupbyseperator{
+  height: 48px!important;
+  border-bottom: 1px solid #E0E0E0!important;
+  padding: 0px 24px 0px 24px!important;
+  line-height: 48px!important;
+  color: #000000!important;
+  font-size: 14px!important;
+  font-weight: 500!important;
+  background-color: white;
+}
+*/
+
 
 /* ----------------------------------- */
 /* CUSTOM CHECKBOX */
@@ -652,4 +670,17 @@ pagination-outer {
   color: rgba(0,0,0,0.54);
   float: left
 }
+
+/**BUtton Style**/
+
+.btn{
+  border-radius: 0px;
+}
+
+/**Drop down menu options Style**/
+.dropdown-menu{
+  border-radius: 0px;
+}
+
+
 
