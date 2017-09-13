@@ -1,11 +1,11 @@
 
       <amexio-data-table
         [title]="'Issue group by severity'"
-        [pageSize] = "10"
+        [pageSize] = "1"
         [groupByColumn]="true"
         [groupByColumnIndex]="'severity'"
         [dataReader]="'response.data'"
-        [checkboxSelect]="false"
+        [checkboxSelect]="true"
         [httpUrl]="'assets/data/issue.json'"
         [httpMethod]="'get'"
         (selectedRowData)="onRowSelect($event)"
