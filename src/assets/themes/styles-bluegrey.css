@@ -490,6 +490,8 @@ body{
 .forgot-password a{
   color: #26A69A!important;
 }
+
+/**INPUT GROUP STYLES**/
 .form-group {
   margin: 12px 0;
   width: 100%;
@@ -506,6 +508,18 @@ body{
 .form-group.last {
   margin-bottom: 0
 }
+
+
+.form-group input::placeholder{
+  color: #dddddd;
+  font-size:15px;
+}
+
+.form-group textarea::placeholder{
+  color: #dddddd;
+  font-size:15px;
+}
+
 .register-contr a {
   color: #26A69A!important;
 }
@@ -787,3 +801,5 @@ pagination-outer {
 {
   transform:scale(0,0);opacity:.2;transition:0s
 }
+
+
