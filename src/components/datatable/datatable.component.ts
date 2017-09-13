@@ -146,6 +146,7 @@ declare var $;
           </td>
         </tr>
       </table>
+      <!--Show table data-->
       <div [ngStyle]="setHeight()">
         <table class="table table-sm   table-bordered ">
           <tbody *ngIf="!smallScreen">
@@ -307,7 +308,7 @@ declare var $;
       </div>
 
       <!--Datatable Bottom ToolBar-->
-      <div class="row pagination-outer" style="float: right;">
+      <div *ngIf="(data && data.length > pageSize)" class="row pagination-outer" style="float: right;">
         <div class="pagination"> <span style="padding-top: 10px">Page no</span>
           <span class="col-xs-12 amexio-datatable-opertions">
           <div class="btn-group btn-group-sm dropup" role="group" aria-label="Button group with nested dropdown">
@@ -321,21 +322,32 @@ declare var $;
              (click)="setPageNo(pageNo+1)">{{pageNo + 1}}</a>
           </div>
           <span style="padding-top: 10px;padding-left: 5px">
+            
+            <!--Pagination Group By Column -->
+          <ng-container *ngIf="currentPage==1 && groupByColumn">
+          1- {{pageSize}} of {{this.data.length}}
+          </ng-container>
+         <ng-container *ngIf="((pageSize*currentPage) < (this.data.length)) && (currentPage!=1) && groupByColumn">
+          {{(pageSize * (currentPage - 1)) + 1}} - {{pageSize * currentPage}} of {{this.data.length}}
+          </ng-container>
+          <ng-container *ngIf="((pageSize*currentPage) > (this.data.length)) && groupByColumn">
+          {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
+          </ng-container>
+          <ng-container *ngIf=" (pageSize*currentPage) == (this.data.length) && groupByColumn">
+          {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
+          </ng-container>
+
+            <!--Pagination without Group By Column -->
             <ng-container *ngIf="currentPage==1 && !groupByColumn">
           1- {{pageSize}} of {{this.data.length}}
           </ng-container>
-            <!--groupby with only one page-->
-          <ng-container *ngIf="currentPage==1 && groupByColumn">
-          1- {{this.data.length}} of {{this.data.length}}
-          </ng-container>
-          
-          <ng-container *ngIf="((pageSize*currentPage) < (this.data.length)) && (currentPage!=1)">
+          <ng-container *ngIf="((pageSize*currentPage) < (this.data.length)) && (currentPage!=1) && !groupByColumn">
           {{(pageSize * (currentPage - 1)) + 1}} - {{pageSize * currentPage}} of {{this.data.length}}
           </ng-container>
           <ng-container *ngIf="((pageSize*currentPage) > (this.data.length)) && !groupByColumn">
           {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
           </ng-container>
-          <ng-container *ngIf=" (pageSize*currentPage) == (this.data.length) ">
+          <ng-container *ngIf=" (pageSize*currentPage) == (this.data.length) && !groupByColumn">
           {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
           </ng-container>
           </span>
@@ -679,16 +691,16 @@ export class DataTableComponent implements OnInit, AfterContentInit, AfterViewIn
     if (this.filtering) {
       this.filterCloneData = JSON.parse(JSON.stringify(this.data));
     }
-    if (this.data.length > (1 * this.pageSize)) {
-      this.maxPage = Math.floor((this.data.length / this.pageSize));
-
-      if ((this.data.length % this.pageSize) > 0) {
-        this.maxPage++;
-      }
-    }
-    for (let pageNo = 1; pageNo <= this.maxPage; pageNo++) {
-      this.pageNumbers.push(pageNo);
-    }
+    //Code Comment because of groupby not working
+    // if (this.data.length > (1 * this.pageSize)) {
+    //   this.maxPage = Math.floor((this.data.length / this.pageSize));
+    //   if ((this.data.length % this.pageSize) > 0) {
+    //     this.maxPage++;
+    //   }
+    // }
+    // for (let pageNo = 1; pageNo <= this.maxPage; pageNo++) {
+    //   this.pageNumbers.push(pageNo);
+    // }
     this.createSummaryData();
     this.renderData();
     if (this.groupByColumn) {
@@ -771,6 +783,20 @@ export class DataTableComponent implements OnInit, AfterContentInit, AfterViewIn
   }
 
   renderData() {
+    //calculate page no for pagination
+    if (this.data) {
+        this.maxPage=0;
+        this.pageNumbers=[];
+        if (this.data.length > (1 * this.pageSize)) {
+          this.maxPage = Math.floor((this.data.length / this.pageSize));
+          if ((this.data.length % this.pageSize) > 0) {
+            this.maxPage++;
+          }
+        }
+        for (let pageNo = 1; pageNo <= this.maxPage; pageNo++) {
+          this.pageNumbers.push(pageNo);
+        }
+    }
     if (this.pageSize > 1) {
       const rowsTemp = this.data;
       const newRows = [];
@@ -919,6 +945,7 @@ export class DataTableComponent implements OnInit, AfterContentInit, AfterViewIn
   }
 
   setPageNo(value: any) {
+    debugger;
     this.currentPage = value;
     this.renderData();
   }
