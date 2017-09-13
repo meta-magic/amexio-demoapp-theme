@@ -22,7 +22,7 @@ export class EmailComponent implements OnInit {
         "message": "Fetching  Data  Request Succeeded: Profile",
         "data": [
           {
-            "name": "ketan Gote",
+            "name": "Ketan Gote",
             "name_official": "Ketan Gote",
             "profile": "ketan.jpg"
           },

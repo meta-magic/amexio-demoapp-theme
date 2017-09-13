@@ -589,7 +589,7 @@ label {
 
 /*TREEVIEW */
 .amexio-treeview-ul{
-  padding-left: 20px!important;
+  padding-left: 2px!important;
 }
 .amexio-tree-view-label{
   text-decoration: none !important;
@@ -605,4 +605,32 @@ label {
 .amexio-typeahead .form-control{
   border-bottom: none;
 }
+
+/**EMAIL PAGE Style**/
+.email-page{
+  padding:0px;
+}
+
+.email-page .row .col-lg-3{
+  padding: 0px !important;
+}
+
+.email-page .row .col-lg-9{
+  padding: 0px !important;
+}
+
+
+.email-page .card-block{
+  padding-left: 15px !important;
+}
+
+.email-page .list-group{
+  border: none!important;
+}
+
+
+.email-page .list-group .list-group-item{
+  border: none!important;
+}
+
 

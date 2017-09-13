@@ -26,7 +26,7 @@ import {Http} from "@angular/http";
       <div class="amexio-listbox">
         <ul  class="list-group amexio-listbox-list">
           <li  *ngIf="(filter == true)"  class="list-group-item amexio-listbox-list-item amexio-listbox-search">
-            <input type="text" class="form-control"  [(ngModel)]="filterText"  placeholder="Search" (keyup)="filterData()">
+            <input type="text" class="form-control"  [(ngModel)]="filterText"  [placeholder]="searchPlaceHolder" (keyup)="filterData()">
           </li>
           <li class="list-group-item  amexio-listbox-list-item" *ngFor="let row of viewData let rowno = index ">
             <div>
@@ -76,6 +76,8 @@ export class ListBoxComponent implements OnInit{
 
     @Input() enableCheckbox : boolean;
 
+    @Input() searchPlaceHolder: string;
+
     @Input() filter : boolean;
 
     @Input() data : any;
@@ -102,6 +104,7 @@ export class ListBoxComponent implements OnInit{
         this.filter = false;
         this.enableCheckbox = false;
         this.selectedData = [];
+        this.searchPlaceHolder = "Search";
     }
 
 
