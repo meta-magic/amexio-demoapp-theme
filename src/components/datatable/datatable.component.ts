@@ -40,9 +40,7 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
 declare var $;
 @Component({
   selector: 'amexio-data-table', template: `
-    <div>
       <ng-content></ng-content>
-    </div>
     <div class="amexio-datatable-wrap" [ngClass]="cClass">
       <table class="table table-sm  table-bordered amexio-datatable-width" [attr.id]="elementId"
              (window:resize)="onResize($event)">
@@ -94,14 +92,13 @@ declare var $;
                 {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
            </ng-container>
               &nbsp;
-              
-            <i class="fa fa-chevron-left" (click)="prev()"></i> &nbsp;
-            <i class="fa fa-chevron-right" (click)="next()"></i>&nbsp;
+              <span style="font-size: 18px;" (click)="prev()">&#x276E;</span>
+               <span style="font-size: 18px;" (click)="next()">&#x2771;</span>
             </span>
             
             <span class="nav-item ">
         <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-bars" aria-hidden="true"></i>
+          <span style="font-size: 18px;">&#x2630;</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" *ngFor="let cols of columns;let i = index;">
