@@ -803,3 +803,23 @@ pagination-outer {
 }
 
 
+/* popover style - dispalyed when input get focus */
+.popover{
+  border-radius: 0px;
+}
+
+.popover-title {
+  background-color: #455A64;
+  color: #FFFFFF;
+  font-size: 20px;
+  border: none;
+  border-radius: 0px;
+}
+.popover-content {
+  color: #455A64;
+  border-radius: 0px;
+  color: rgba(0,0,0,0.87);
+  font-size: 13px;
+  font-size: 10px;
+  border-radius: 0px;
+}
