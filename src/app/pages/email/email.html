@@ -36,19 +36,22 @@
             </amexio-listbox>
           </div>
           <div class="col-lg-9">
-            <amexio-data-table
-              [title]="'Inbox'"
-              [pageSize] = "15"
-              [dataReader]="'response.data'"
-              [checkboxSelect]="true"
-              [httpUrl]="'assets/data/email.json'"
-              [httpMethod]="'get'"
-              (selectedRowData)="onRowSelect($event)"
-              (rowSelect)="onRowClick($event)" [cClass]="'gridStyle'" [tableDatacClass]="'datagridrow'" [tableTitlecClass]="'headerStyle'" [tableHeadercClass]="'headerStyleColumn'">
-              <amexio-data-table-column [dataIndex]="'date'" [dataType]="'string'" [hidden]="false" [text]="'Date'"></amexio-data-table-column>
-              <amexio-data-table-column [dataIndex]="'from'" [dataType]="'string'" [hidden]="false" [text]="'From'"></amexio-data-table-column>
-              <amexio-data-table-column [dataIndex]="'title'" [dataType]="'string'" [hidden]="false" [text]="'Title'"></amexio-data-table-column>
-            </amexio-data-table>
+            <div class="row">
+              <amexio-data-table
+                [title]="'Inbox'"
+                [pageSize] = "15"
+                [dataReader]="'response.data'"
+                [checkboxSelect]="true"
+                [httpUrl]="'assets/data/email.json'"
+                [httpMethod]="'get'"
+                (selectedRowData)="onRowSelect($event)"
+                (rowSelect)="onRowClick($event)" [cClass]="'gridStyle'" [tableDatacClass]="'datagridrow'" [tableTitlecClass]="'headerStyle'" [tableHeadercClass]="'headerStyleColumn'">
+                <amexio-data-table-column [dataIndex]="'date'" [dataType]="'string'" [hidden]="false" [text]="'Date'"></amexio-data-table-column>
+                <amexio-data-table-column [dataIndex]="'from'" [dataType]="'string'" [hidden]="false" [text]="'From'"></amexio-data-table-column>
+                <amexio-data-table-column [dataIndex]="'title'" [dataType]="'string'" [hidden]="false" [text]="'Title'"></amexio-data-table-column>
+              </amexio-data-table>
+            </div>
+
           </div>
         </div>
       </amexio-pane-body>
