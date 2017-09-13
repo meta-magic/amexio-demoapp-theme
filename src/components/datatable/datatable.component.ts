@@ -945,7 +945,6 @@ export class DataTableComponent implements OnInit, AfterContentInit, AfterViewIn
   }
 
   setPageNo(value: any) {
-    debugger;
     this.currentPage = value;
     this.renderData();
   }
