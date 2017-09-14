@@ -362,7 +362,7 @@ body{
   width: 100%;
   font-size: 20px;
   font-weight: 500!important;
-  border-radius: 0px;
+  border-radius: 0px!important;
 }
 /*check box label*/
 .form-check-label{
