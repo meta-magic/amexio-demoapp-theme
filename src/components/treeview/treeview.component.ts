@@ -28,40 +28,40 @@ import {CommonHttpService} from '../common.http.service';
         
         <ul class="amexio-treeview-ul" *ngIf="data.length > 0">
             <li style="cursor: pointer" *ngFor="let treeData of data">
-                <div >
-                    <ng-container *ngIf="(!treeData.expanded && treeData.children)">
-                      <span style="vertical-align: top;font-size: 20px;" (click)="toggle(treeData)">&#x2795;</span>
-                    </ng-container>
-                  <ng-container *ngIf="treeData.expanded">
-                    <span style="vertical-align: top;font-size: 20px;" (click)="toggle(treeData)">&#x2796;</span>
-                  </ng-container>
-                    <span *ngIf="enableCheckBox">
-                    <input type="checkbox" [checked]="'checked'?treeData.checked:null" (click)="emitCheckedData(treeData)"/>                    
-                  </span>
-                    <label style="cursor: pointer" (click)="emitData(treeData)">
+                <div class="d-flex">
+                      <ng-container *ngIf="(!treeData.expanded && treeData.children)">
+                        <span style="vertical-align: top;font-size: 20px;" (click)="toggle(treeData)">&#x2795;</span>
+                      </ng-container>
+                      <ng-container *ngIf="treeData.expanded">
+                        <span style="vertical-align: top;font-size: 20px;" (click)="toggle(treeData)">&#x2796;</span>
+                      </ng-container>
+                      <span *ngIf="enableCheckBox">
+                         <input type="checkbox" [checked]="'checked'?treeData.checked:null" (click)="emitCheckedData(treeData)"/>                    
+                      </span>
+                      <span (click)="emitData(treeData)">
                         <ng-container *ngIf="templates == null">
-                            {{treeData.text}}
+                          <label>{{treeData.text}}</label>
                         </ng-container>
                         <ng-template *ngIf="templates != null" [ngTemplateOutlet]="parentTmp" [ngOutletContext]="{ $implicit: { text: treeData.text } , icon: treeData.icon,node : treeData }"></ng-template>
-                    </label>
-
+                      </span>
                 </div>
                 <div *ngIf="treeData.expanded && treeData.expanded  == true">
                     <ul class="amexio-treeview-ul">
                         <li style="cursor: pointer" *ngFor="let leaf of treeData.children">
-                            <div>
+                            <div class="d-flex">
                               <ng-container *ngIf="(!leaf.expanded && leaf.children)">
                                 <span style="vertical-align: top;font-size: 20px;" (click)="toggle(leaf)">&#x2795;</span>
                               </ng-container>
                               <ng-container *ngIf="leaf.expanded">
                                 <span style="vertical-align: top;font-size: 20px;" (click)="toggle(leaf)">&#x2796;</span>
                               </ng-container>
-                                <span *ngIf="enableCheckBox"><input type="checkbox" [checked]="'checked'?leaf.checked:null" (click)="emitCheckedData(leaf)"/></span>
+                              
+                              <span *ngIf="enableCheckBox"><input type="checkbox" [checked]="'checked'?leaf.checked:null" (click)="emitCheckedData(leaf)"/></span>
 
-                                <label (click)="emitData(leaf)">
-                                    <ng-container *ngIf="templates == null">{{ leaf.text }}</ng-container>
+                              <span (click)="emitData(leaf)">
+                                    <ng-container *ngIf="templates == null"><label>{{leaf.text}}</label></ng-container>
                                     <ng-template *ngIf="templates != null" [ngTemplateOutlet]="parentTmp" [ngOutletContext]="{ $implicit: { text: leaf.text }, icon: leaf.icon, node : leaf }"></ng-template>
-                                </label>
+                              </span>
 
                             </div>
 
@@ -112,8 +112,16 @@ import {CommonHttpService} from '../common.http.service';
     }
     .amexio-treeview-ul{
         list-style-type: none;
-        padding-left: 0px;
-    }`]
+        padding-left: 1px;
+    }
+
+   
+
+    .amexio-treeview-ul li div label{
+      padding:2px 0px 2px 2px;
+    }
+
+    `]
 })
 
 export class TreeViewComponent implements  OnInit, AfterViewInit{

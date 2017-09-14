@@ -12,7 +12,8 @@
                 <amexio-btn [label]="'Compose'" [type]="'danger'" [size]="'small'"[tooltipMessage]="'Compose'" ></amexio-btn>
               </div>
               <amexio-tree-view [dataTableBindData]="data"
-                                (selectedRecord)="onRowSelect($event)">
+                                (selectedRecord)="onRowSelect($event)"
+                                [enableCheckBox]="false">
                 <ng-template #amexioTreeTemplate let-tree let-icon="icon" let-node="node">
                   <div class="d-flex float-left">
                     <ng-container *ngIf="node.materialIcon">
@@ -44,7 +45,7 @@
                 [checkboxSelect]="true"
                 [httpUrl]="'assets/data/email.json'"
                 [httpMethod]="'get'"
-                [filtering]="true"
+                [filtering]="false"
                 (selectedRowData)="onRowSelect($event)"
                 (rowSelect)="onRowClick($event)" [cClass]="'gridStyle'" [tableDatacClass]="'datagridrow'" [tableTitlecClass]="'headerStyle'" [tableHeadercClass]="'headerStyleColumn'">
                 <amexio-data-table-column [dataIndex]="'date'" [dataType]="'string'" [hidden]="false" [text]="'Date'"></amexio-data-table-column>
