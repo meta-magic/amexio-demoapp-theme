@@ -9,7 +9,7 @@
           <div class="row">
             <div class="col-lg-3">
               <div style="text-align: center;padding-bottom: 10px">
-                <amexio-btn [label]="'Compose'" [type]="'danger'" [size]="'small'"[tooltipMessage]="'Compose'" ></amexio-btn>
+                <amexio-btn [label]="'Compose'" [type]="'danger'" [size]="'small'"[tooltipMessage]="'Compose'" (click)="toggle()" ></amexio-btn>
               </div>
               <amexio-tree-view [dataTableBindData]="data"
                                 (selectedRecord)="onRowSelect($event)"
@@ -88,7 +88,7 @@
     </div>
   </amexio-pane-body>
   <amexio-pane-action>
-    <div style="float: right;">
+    <div style="float: right;padding-top: 10px">
       <amexio-btn-group [size]="'small'">
         <amexio-btn-group-action [label]="'Discard'" [type]="'danger'" [tooltipMessage]="'delete'"  ></amexio-btn-group-action>
         <amexio-btn-group-action [label]="'Send'" [type]="'success'" [tooltipMessage]="'unread'" ></amexio-btn-group-action>
