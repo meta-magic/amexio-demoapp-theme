@@ -44,6 +44,7 @@
                 [checkboxSelect]="true"
                 [httpUrl]="'assets/data/email.json'"
                 [httpMethod]="'get'"
+                [filtering]="true"
                 (selectedRowData)="onRowSelect($event)"
                 (rowSelect)="onRowClick($event)" [cClass]="'gridStyle'" [tableDatacClass]="'datagridrow'" [tableTitlecClass]="'headerStyle'" [tableHeadercClass]="'headerStyleColumn'">
                 <amexio-data-table-column [dataIndex]="'date'" [dataType]="'string'" [hidden]="false" [text]="'Date'"></amexio-data-table-column>
