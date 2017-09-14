@@ -354,7 +354,9 @@ body{
 .amexio-checkbox[type="checkbox"]:checked + label:after {
   transform: rotate(-45deg) scale(1);
 }
-
+.amexio-checkbox-group{
+  margin: 12px 0!important;float: left;
+}
 
 .form-control{
   border: none;
