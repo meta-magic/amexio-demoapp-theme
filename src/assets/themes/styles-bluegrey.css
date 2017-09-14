@@ -639,6 +639,11 @@ label {
 .amexio-treeview-ul{
   padding-left: 2px!important;
 }
+
+.amexio-treeview-ul li{
+  padding-left: 10px;
+}
+
 .amexio-tree-view-label{
   text-decoration: none !important;
   color: rgba(0,0,0,0.87) !important;
