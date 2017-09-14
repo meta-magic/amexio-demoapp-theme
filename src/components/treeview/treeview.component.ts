@@ -253,7 +253,6 @@ export class TreeViewComponent implements  OnInit, AfterViewInit{
     }
 
     emitData(treeData : any){
-      console.log(treeData);
         this.selectedRecord.emit(JSON.parse(JSON.stringify(treeData)));
     }
 

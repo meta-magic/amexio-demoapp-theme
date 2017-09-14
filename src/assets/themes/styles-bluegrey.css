@@ -7,17 +7,21 @@ body{
   color: #6F6F6F;
 }
 
-.navbar-light
-{
-  height: 64px;
-  width: 100%;
-  background-color: #90A4AE;
-  vertical-align: middle;
-  box-shadow: 2px;
-  padding-left: 15px;
-  box-shadow: 0px 0px 2px 2px #666;
-}
+/*.navbar-light*/
+/*{*/
+  /*height: 64px;*/
+  /*width: 100%;*/
+  /*background-color: #90A4AE;*/
+  /*vertical-align: middle;*/
+  /*box-shadow: 2px;*/
+  /*padding-left: 15px;*/
+  /*box-shadow: 0px 0px 2px 2px #666;*/
+/*}*/
 
+/*Top nav bar*/
+.bg-inverse {
+  background-color: #90A4AE !important;
+}
 /* ----------------------------------- */
 /* MATERIAL ICONS - CSS */
 /* ----------------------------------- */
@@ -166,13 +170,13 @@ body{
 
 .amexio-listbox-list li .title{
   float: left;
-  font-size: 16px;
+  font-size: 18px;
   color: rgba(0,0,0,0.87);
   padding-top: 8px;
 
 }
 .amexio-listbox-list .title a{
-  font-size: 16px;
+  font-size: 18px;
   color: aqua;
   color: rgba(0,0,0,0.54);
 }
