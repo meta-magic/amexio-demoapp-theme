@@ -51,10 +51,10 @@ import {CommonHttpService} from '../common.http.service';
                         <li style="cursor: pointer" *ngFor="let leaf of treeData.children">
                             <div>
                               <ng-container *ngIf="(!leaf.expanded && leaf.children)">
-                                <span style="vertical-align: top;font-size: 20px;" (click)="toggle(treeData)">&#x2795;</span>
+                                <span style="vertical-align: top;font-size: 20px;" (click)="toggle(leaf)">&#x2795;</span>
                               </ng-container>
                               <ng-container *ngIf="leaf.expanded">
-                                <span style="vertical-align: top;font-size: 20px;" (click)="toggle(treeData)">&#x2796;</span>
+                                <span style="vertical-align: top;font-size: 20px;" (click)="toggle(leaf)">&#x2796;</span>
                               </ng-container>
                                 <span *ngIf="enableCheckBox"><input type="checkbox" [checked]="'checked'?leaf.checked:null" (click)="emitCheckedData(leaf)"/></span>
 
