@@ -72,6 +72,7 @@ export class EmailComponent implements OnInit {
           "text": "Inbox",
           "expanded":false,
           "checked": false,
+          "selected":true,
           "icon": "fa fa-inbox"
         },{
           "text": "Sent",
