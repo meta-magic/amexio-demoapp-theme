@@ -81,7 +81,7 @@ import {CommonHttpService} from "../common.http.service";
           width: 0;
           position: fixed;
           z-index: 1;
-          top: 0;
+          
           left: 0;
           background-color: #ffffff;
           overflow-x: hidden;
@@ -104,6 +104,13 @@ import {CommonHttpService} from "../common.http.service";
         padding: 10px;
       }
 
+      .amexio-sidenavbar-sidenavopenleft{
+        position:absolute;
+        top:0;
+        left:0;
+        font-size:30px;
+        cursor:pointer
+      }
 
 
       .amexio-sidenavbar-sidenavright {

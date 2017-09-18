@@ -1,4 +1,4 @@
-<top-nav-bar></top-nav-bar>
+
 <div class="container-fluid" (window:resize)="onResize($event)">
   <div *ngIf="!isMobile" class="row">
     <div *ngIf="themeName==='Default'" class="col-lg-2 sidenavbox" >
@@ -74,7 +74,7 @@
             [width]="'90%'"
             [httpUrl]="'assets/data/menus/sidebar.json'"
             [httpMethod]="'get'"
-            [dataReader]="'data'" [toPosition]="75" [expanded]="false"
+            [dataReader]="'data'" [toPosition]="105" [expanded]="false"
             (selectedNode)="routeToLink($event)">
             <ng-template #amexioNavHeaderTmpl let-navHeader="navHeader">
               <i class="material-icons md-18 md-dark">{{navHeader.mdbIcon}}</i>
