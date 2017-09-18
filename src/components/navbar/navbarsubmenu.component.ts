@@ -45,13 +45,14 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
     </ul>
   `,
   styles : [`
+    
       .amexio-navbarsubmenu-ul{
           list-style: none;
           padding: 1px;
       }
       .amexio-navbarsubmenu-ul li {
           list-style: none;
-          padding: 1px 20px;
+          padding: 10px;
           color: #777;
       }
       .amexio-navbarsubmenu-a {

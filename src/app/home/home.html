@@ -6,7 +6,7 @@
         [width]="'17%'"
         [httpUrl]="'assets/data/menus/sidebar.json'"
         [httpMethod]="'get'"
-        [dataReader]="'data'" [toPosition]="65" [expanded]="true"
+        [dataReader]="'data'" [toPosition]="60" [expanded]="true"
         (selectedNode)="routeToLink($event)">
         <ng-template #amexioNavHeaderTmpl let-navHeader="navHeader">
           &nbsp;<i [attr.class]="navHeader.icon"></i>&nbsp;<b>{{navHeader.text}}</b>
@@ -25,18 +25,22 @@
         [width]="'17%'"
         [httpUrl]="'assets/data/menus/sidebar.json'"
         [httpMethod]="'get'"
-        [dataReader]="'data'" [toPosition]="65" [expanded]="true"
+        [dataReader]="'data'" [toPosition]="60" [expanded]="true"
         (selectedNode)="routeToLink($event)">
+
         <ng-template #amexioNavHeaderTmpl let-navHeader="navHeader">
+
           <i class="material-icons md-18 md-dark">{{navHeader.mdbIcon}}</i>
-          &nbsp;<b>{{navHeader.text}}</b>
+          <a>{{navHeader.text}}</a>
+
         </ng-template>
         <ng-template #amexioMenuHeaderTmpl let-menuHeader="menuHeader">
-          <div style="width: 100%;" class="amexio-navbarsubmenu-a">  <i class="material-icons md-18 md-dark">{{menuHeader.mdbIcon}}</i>
-            &nbsp;{{menuHeader.text}}</div>
+          <i class="material-icons md-18 md-dark">{{menuHeader.mdbIcon}}</i>
+          <a>{{menuHeader.text}}</a>
         </ng-template>
         <ng-template #amexioSubMenuTmpl let-subMenus="subMenus">
-          <div style="width: 100%;" class="amexio-navbarsubmenu-a">  <i class="material-icons md-18 md-dark">{{subMenus.mdbIcon}}</i>&nbsp;{{subMenus.text}}</div>
+          <i class="material-icons md-18 md-dark">{{subMenus.mdbIcon}}</i>
+          <a>&nbsp;{{subMenus.text}}</a>
         </ng-template>
       </amexio-sidemenubar>
     </div>
