@@ -319,10 +319,9 @@ body{
   overflow: auto;
   font-weight: 300;
   text-transform: capitalize;
+
 }
-.headerStyle .amexio-datatable-title{
-  padding-top: 15px;
-}
+
 .gridStyle{
   font-size: 13px;
   line-height: 15px;
@@ -335,19 +334,18 @@ body{
   height:48px;
   border-bottom: 1px solid #E0E0E0;
   font-weight: 500;
-  padding: 12px 24px 0px 24px!important;
+  padding: 0px 24px 0px 24px!important;
   text-align: left;
 
 }
 .datagridrow{
   height:48px;
   border-bottom: 1px solid #E0E0E0;
-
   background-color: #fff;
 }
 
 .datagridrow td{
-  padding: 16px 24px 0px 24px!important;
+  padding: 0px 24px 0px 24px!important;
 }
 .datagridrow:hover{
   background-color: #eee;
@@ -764,11 +762,20 @@ label {
 
 .contact-list-mini .title {
   float: left;
-  font-size: 13px;
-  color: rgba(0,0,0,0.87);
   padding-top: 8px;
-  font-weight: 500;
+  font-size: 13px!important;
+  color: rgba(0,0,0,0.87);
+  font-weight: 500!important;
 }
+
+.contact-list-mini img {
+  width: 40px;
+  height: 40px;
+  border-radius: 200px;
+  margin-right: 20px;
+  float: left;
+}
+
 
 /*TREEVIEW */
 .amexio-treeview-ul{
@@ -782,8 +789,8 @@ label {
   display: table-cell!important;
   vertical-align: middle!important;
   padding: 13px 0px 13px 17px;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 13px;
 }
 
 .amexio-treeview-navigation-icons{

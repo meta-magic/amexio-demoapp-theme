@@ -116,6 +116,7 @@ export class EmailComponent implements OnInit {
           "text": "Inbox",
           "expanded":false,
           "checked": false,
+          "selected":true,
           "materialIcon":"dashboard"
         },{
         "text": "Sent",

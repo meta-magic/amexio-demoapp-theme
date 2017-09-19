@@ -191,6 +191,7 @@ export class TreeViewComponent implements  OnInit, AfterViewInit{
     }
 
     ngAfterViewInit(){
+      debugger;
         if (this.httpMethod && this.httpUrl){
 
             this.treeViewService.fetchData(this.httpUrl, this.httpMethod).subscribe(
@@ -231,6 +232,8 @@ export class TreeViewComponent implements  OnInit, AfterViewInit{
         if (treedata){
             this.data = treedata;
         }
+
+        console.log(this.data);
     }
 
   getResponseData(httpResponse : any){
