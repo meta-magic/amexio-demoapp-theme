@@ -362,7 +362,7 @@ declare var $;
                   </ng-container>
                   <span> 
                           <label (click)="prev()" style="cursor: pointer;">&#9664;</label>
-                          <label (click)="next()" style="cursor: pointer;"> &#9658; </label>
+                          <label (click)="next()" style="cursor: pointer;"> &#9654; </label>
                   </span>
                   
                   
