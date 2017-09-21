@@ -493,7 +493,7 @@ body{
   line-height: 1.42857;
   padding: 2px 12px;
   width: 100%;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 500!important;
   border-radius: 0px!important;
 }
@@ -526,7 +526,7 @@ body{
   display: block!important;
   color: #00695C!important;
   padding: 12px!important;
-  font-size: 20px!important;
+  font-size: 14px!important;
   text-transform: uppercase;
   text-decoration:none;
   position: relative;

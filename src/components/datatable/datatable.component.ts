@@ -309,53 +309,63 @@ declare var $;
 
             <!--Datatable Bottom ToolBar-->
             <div *ngIf="(data && data.length > pageSize)" class="row pagination-outer" style="float: right;">
-                <div class="pagination"> <span style="padding-top: 10px">Page no</span>
-                    <span class="col-xs-12 amexio-datatable-opertions">
-          <div class="btn-group btn-group-sm dropup" role="group" aria-label="Button group with nested dropdown">
-          <ng-container *ngIf="maxPage > 1">
-         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                 aria-expanded="false">
-          {{currentPage}}
-          </button>
-          <div class="dropdown-menu">
-          <a *ngFor="let row of pageNumbers let pageNo = index " class="dropdown-item"
-             (click)="setPageNo(pageNo+1)">{{pageNo + 1}}</a>
-          </div>
-          <span style="padding-top: 10px;padding-left: 5px">
-            
-            <!--Pagination Group By Column -->
-          <ng-container *ngIf="currentPage==1 && groupByColumn">
-          1- {{pageSize}} of {{this.data.length}}
-          </ng-container>
-         <ng-container *ngIf="((pageSize*currentPage) < (this.data.length)) && (currentPage!=1) && groupByColumn">
-          {{(pageSize * (currentPage - 1)) + 1}} - {{pageSize * currentPage}} of {{this.data.length}}
-          </ng-container>
-          <ng-container *ngIf="((pageSize*currentPage) > (this.data.length)) && groupByColumn">
-          {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
-          </ng-container>
-          <ng-container *ngIf=" (pageSize*currentPage) == (this.data.length) && groupByColumn">
-          {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
-          </ng-container>
 
-              <!--Pagination without Group By Column -->
-            <ng-container *ngIf="currentPage==1 && !groupByColumn">
-          1- {{pageSize}} of {{this.data.length}}
-          </ng-container>
-          <ng-container *ngIf="((pageSize*currentPage) < (this.data.length)) && (currentPage!=1) && !groupByColumn">
-          {{(pageSize * (currentPage - 1)) + 1}} - {{pageSize * currentPage}} of {{this.data.length}}
-          </ng-container>
-          <ng-container *ngIf="((pageSize*currentPage) > (this.data.length)) && !groupByColumn">
-          {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
-          </ng-container>
-          <ng-container *ngIf=" (pageSize*currentPage) == (this.data.length) && !groupByColumn">
-          {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
-          </ng-container>
-          </span>
-          <span style="font-size: 18px;margin-left: 10px;padding-top: 10px;" (click)="prev()">&#x276E;</span>
-          <span style="font-size: 18px;padding-top: 10px;" (click)="next()">&#x2771;</span>
-          </ng-container>
-          </div>
-          </span>
+                <div class="pagination">
+
+                  <ng-container *ngIf="maxPage > 1">
+                    <span class="btn-group btn-group-sm dropup" role="group" aria-label="Button group with nested dropdown">
+                          <label>
+                            Page no
+                          </label>
+                          <label  style="cursor: pointer;"  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{currentPage}}
+                          </label>
+                          <div class="dropdown-menu">
+                            <a *ngFor="let row of pageNumbers let pageNo = index " class="dropdown-item" (click)="setPageNo(pageNo+1)">{{pageNo + 1}}</a>
+                          </div>
+                      
+                          <label>
+                            
+                            <ng-container *ngIf="currentPage==1 && groupByColumn"> 1- {{pageSize}} of {{this.data.length}} </ng-container>
+                            
+                            <ng-container *ngIf="((pageSize*currentPage) < (this.data.length)) && (currentPage!=1) && groupByColumn">
+                            {{(pageSize * (currentPage - 1)) + 1}} - {{pageSize * currentPage}} of {{this.data.length}}
+                            </ng-container>
+                            
+                            <ng-container *ngIf="((pageSize*currentPage) > (this.data.length)) && groupByColumn">
+                            {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
+                            </ng-container>
+                            
+                            <ng-container *ngIf=" (pageSize*currentPage) == (this.data.length) && groupByColumn">
+                            {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
+                            </ng-container>
+          
+                      
+                            <ng-container *ngIf="currentPage==1 && !groupByColumn"> 1- {{pageSize}} of {{this.data.length}} </ng-container>
+                            
+                            <ng-container *ngIf="((pageSize*currentPage) < (this.data.length)) && (currentPage!=1) && !groupByColumn">
+                            {{(pageSize * (currentPage - 1)) + 1}} - {{pageSize * currentPage}} of {{this.data.length}}
+                            </ng-container>
+                            
+                            <ng-container *ngIf="((pageSize*currentPage) > (this.data.length)) && !groupByColumn">
+                            {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
+                            </ng-container>
+                            
+                            <ng-container *ngIf=" (pageSize*currentPage) == (this.data.length) && !groupByColumn">
+                            {{(pageSize * (currentPage - 1)) + 1}} - {{this.data.length}} of {{this.data.length}}
+                            </ng-container>                            
+                            
+                          </label>
+                    </span>
+                    
+                    
+                  </ng-container>
+                  <span> 
+                          <label (click)="prev()" style="cursor: pointer;">&#9664;</label>
+                          <label (click)="next()" style="cursor: pointer;"> &#9658; </label>
+                  </span>
+                  
+                  
                 </div>
             </div>
         </div>
@@ -382,8 +392,12 @@ declare var $;
 
         .amexio-datatable-opertions {
             float: right;
+            font-size: 18px;
         }
 
+        .amexio-datatable-opertions label{
+          padding: 10px;
+        }
         .amexio-datatable-dropdown-action {
             max-height: 445.406px;
             overflow-y: auto;
@@ -441,6 +455,21 @@ declare var $;
             vertical-align: middle !important;
         }
 
+        .pagination {
+          float: right;
+        }
+
+        .pagination label, .pagination  {
+          margin-right: 10px;
+          display: inline-block;
+          float: left;
+        }
+
+        .pagination-outer{
+          padding: 16px 24px 0px 24px;
+          background-color: #fff;
+        }
+        
         table tr td {
             border-left: 0;
             border-right: 0;

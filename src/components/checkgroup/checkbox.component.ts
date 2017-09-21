@@ -88,6 +88,7 @@ export const CHECK_COLUMN_SIZE = 'col-lg-';
     top: 0;
 }
       .amexio-checkbox-group{  
+        width: 100%;
       }
     `]
 })
