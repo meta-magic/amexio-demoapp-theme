@@ -22,8 +22,6 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "bootstrap": "^4.0.0-alpha.6",
-    "bootstrap-datepicker": "^1.7.1",
-    "bootstrap-timepicker": "^0.5.2",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
