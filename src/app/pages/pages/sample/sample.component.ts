@@ -35,13 +35,13 @@ export class SampleComponent implements OnInit {
     this.checkboxGroupdata = {
       response:{
         data:[{
-          language:'Angular 2',
+          language:'Learning',
           checked: false
         },{
-          language:'JAVA',
+          language:'Shopping',
           checked: false
         },{
-          language:'C++',
+          language:'Fishing',
           checked: false
         }
         ]}};
