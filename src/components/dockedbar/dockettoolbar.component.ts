@@ -12,7 +12,7 @@
 
 
 import {
-  Component , ContentChildren,OnInit, QueryList
+  Component, ContentChildren, Input, OnInit, QueryList
 } from '@angular/core';
 import {DockbarComponent} from "./dockbaritem";
 
@@ -21,8 +21,7 @@ import {DockbarComponent} from "./dockbaritem";
 @Component({
   selector: 'amexio-dockbar',
   template : `
-    <div style="background-color: #0c7cd5">
-    <div class="amexio-dockbar">
+    <div class="amexio-dockbar" [style.min-height]="height">
       <ng-container *ngFor="let dockbar of dockbarArray">
         <button [ngClass]="{'active':dockbar.active}" (click)="onClick(dockbar)">
 
@@ -53,10 +52,9 @@ import {DockbarComponent} from "./dockbaritem";
         </button>
       </ng-container>
     </div>
-    <div class="amexio-dockbar-item">
+    <div class="amexio-dockbar-item" [style.min-height]="height">
       <ng-content></ng-content>
     </div>
-    </div> 
   `,
   styles:[
     `      
@@ -65,14 +63,11 @@ import {DockbarComponent} from "./dockbaritem";
         width: 70px;
         border: 1px solid #f1f1f1;
         background-color: #dee0e3;
-        height: 100%;
-        min-height: 1300px;
         position: relative;
       }
       
       .amexio-dockbar-item{
         background-color: #f1f1f1;
-        min-height: 1300px;
       }
       
       /* Style the buttons inside the tab */
@@ -119,6 +114,8 @@ export class DockedBarToolComponent implements OnInit{
 
   dockbarArray:DockbarComponent[];
 
+  @Input() height :string;
+
   constructor(){
 
   }
@@ -127,7 +124,7 @@ export class DockedBarToolComponent implements OnInit{
     const tabs = this.dockbarArray;
     tabs.forEach(tab => {
       tab.active = false;
-      if (tab.name == event.name) {
+      if (tab.elementId == event.elementId) {
         tab.active = true;
       }
     });

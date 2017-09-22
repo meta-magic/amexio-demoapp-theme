@@ -38,9 +38,6 @@ import {Component, Input, OnInit} from '@angular/core';
 
 export class DockbarComponent implements OnInit{
 
-
-  @Input() name:string;
-
   @Input() active:boolean;
 
   @Input() label:string;
@@ -55,6 +52,7 @@ export class DockbarComponent implements OnInit{
 
   @Input() imagePath:any;
 
+  elementId:string;
 
   //Close the  dockbar item
   onBarIconClick(){
@@ -62,6 +60,7 @@ export class DockbarComponent implements OnInit{
   }
 
   constructor() {
+    this.elementId = 'dockbar-item-id' + Math.floor(Math.random()*90000) + 10000;
   }
 
   ngOnInit() {
