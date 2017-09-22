@@ -11,7 +11,6 @@ import {DropdownItemComponent} from './buttondropdown/dropdown.item.component';
 import {ButtonGroupActionComponent} from './buttongroup/buttongroup.action.component';
 import {ButtonGroupComponent} from './buttongroup/buttongroup.component';
 import {CheckBoxGroup} from './checkgroup/checkbox.component';
-import {DateTimeComponent} from './datetimepicker/datetimepicker.component';
 import {DropDownComponent} from './dropdown/dropdown';
 import {EmailInputComponent} from './emailinput/emailinput.component';
 import {NumberInputComponent} from './numberinput/numberinput.component';
@@ -76,13 +75,16 @@ import {CandlestickWaterfallChartComponent} from "./modules/charts/candlestickwa
 import {ImageComponent} from "./image/image.component";
 import {FieldSetComponent} from "./fildset/fieldset.component";
 import {FieldSetBodyComponent} from "./fildset/fieldsetbody.component";
+import {DockbarComponent} from "./dockedbar/dockbaritem";
+import {DockedBarToolComponent} from "./dockedbar/dockettoolbar.component";
+import {DateTimeComponent} from "./datetimepicker/datetimepicker.component";
 
+export * from "./datetimepicker/datetimepicker.component";
 export * from './button/button.component';
 export * from './common.http.service';
 export * from './textinput/textinput.component';
 export * from './baseclass/form.base.class';
 export * from './checkgroup/checkbox.component';
-export * from './datetimepicker/datetimepicker.component';
 export * from './dropdown/dropdown';
 export * from './emailinput/emailinput.component';
 export * from './numberinput/numberinput.component';
@@ -95,7 +97,8 @@ export * from './typeahead/autocomplete.component';
 export * from "./image/image.component";
 export * from "./fildset/fieldset.component";
 export * from "./fildset/fieldsetbody.component";
-
+export * from "./dockedbar/dockbaritem";
+export * from "./dockedbar/dockettoolbar.component";
 /*Button exports*/
 export * from './buttongroup/buttongroup.action.component'
 export * from './buttongroup/buttongroup.component';
@@ -178,7 +181,6 @@ export * from "./modules/charts/candlestickwaterfallchart/candlestickwaterfall.c
     ButtonGroupActionComponent,
     ButtonGroupComponent,
     CheckBoxGroup,
-    DateTimeComponent,
     DropDownComponent,
     EmailInputComponent,
     NumberInputComponent,
@@ -242,7 +244,10 @@ export * from "./modules/charts/candlestickwaterfallchart/candlestickwaterfall.c
     TreeMapComponent,
     MapTitleComponent,
     CandlestickChartComponent,
-    CandlestickWaterfallChartComponent
+    CandlestickWaterfallChartComponent,
+    DockbarComponent,
+    DockedBarToolComponent,
+    DateTimeComponent
   ],
   exports: [
     ButtonComponent,
@@ -316,7 +321,9 @@ export * from "./modules/charts/candlestickwaterfallchart/candlestickwaterfall.c
     CandlestickWaterfallChartComponent,
     ImageComponent,
     FieldSetComponent,
-    FieldSetBodyComponent
+    FieldSetBodyComponent,
+    DockbarComponent,
+    DockedBarToolComponent
   ]
 })
 export class AmexioWidgetModule {

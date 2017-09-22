@@ -22,7 +22,7 @@ import {CommonHttpService} from "../common.http.service";
   selector: 'amexio-sidemenubar',
   template: `
 
-      <div [style.margin-top]="toPosition" [ngClass]="{'amexio-sidenavbar-sidenavleft':!right, 'amexio-sidenavbar-sidenavright':right}"  [attr.id]="elementId" (mouseleave)="expanded?null:closeNav()">
+      <div [style.margin-top]="toPosition" [ngClass]="getSideNavbarClass()"  [attr.id]="elementId" (mouseleave)="expanded?null:closeNav()">
           <ul class="navbar-nav">
             <li *ngIf="filter==true">
                 <div class="amexio-sidenavbar-filter">
@@ -64,7 +64,7 @@ import {CommonHttpService} from "../common.http.service";
           </ul>
       </div>
 
-      <span *ngIf="enableToggleButton" [style.margin-top]="toPosition"  [ngClass]="{'amexio-sidenavbar-sidenavopenleft':!right, 'amexio-sidenavbar-sidenavopenright':right}"  (click)="openNav()">&#9776;</span>
+      <span *ngIf="enableToggleButton && position!='relative' " [style.margin-top]="toPosition"  [ngClass]="{'amexio-sidenavbar-sidenavopenleft':(!right && position!='relative'), 'amexio-sidenavbar-sidenavopenright':right}"  (click)="openNav()">&#9776;</span>
 
   `,
   styles : [`
@@ -75,6 +75,15 @@ import {CommonHttpService} from "../common.http.service";
       }
       .amexio-link-notselected{
         
+      } /*this is for relative position of sidenavbar*/
+      .amexio-sidenavbar-sidenav-relative{
+        height: 100%;
+        position: relative;
+        z-index: 1;
+        background-color: #ffffff;
+        overflow-x: hidden;
+        transition: 0.5s;
+        overflow: auto;
       }
       .amexio-sidenavbar-sidenavleft {
           height: 100%;
@@ -193,6 +202,8 @@ export class SideNavBarComponent implements OnInit, AfterViewInit {
   @Input()
   enableToggleButton: boolean;
 
+  @Input()
+  position:string;
 
 
   @Output()
@@ -209,6 +220,7 @@ export class SideNavBarComponent implements OnInit, AfterViewInit {
 
   filterText: string;
 
+  amexioSidenavbarStr:string;
 
   @ContentChild('amexioNavHeaderTmpl') headerTemplate: TemplateRef<any>;
 
@@ -239,8 +251,28 @@ export class SideNavBarComponent implements OnInit, AfterViewInit {
         this.openNav();
       });
     }
+
   }
 
+  //this is method use for sidebar menu btn position
+  getSideNavbarToggleBtnClass(){
+    if(!this.right){
+      this.amexioSidenavbarStr='amexio-sidenavbar-sidenavopenleft';
+    }else if(this.right){
+      this.amexioSidenavbarStr='amexio-sidenavbar-sidenavopenright';
+    }
+  }
+  //this is method is for loading css class for side menu position
+  getSideNavbarClass(){
+    if(!this.right && this.position!='relative' ){
+      this.amexioSidenavbarStr='amexio-sidenavbar-sidenavleft';
+    }else if(this.right){
+      this.amexioSidenavbarStr='amexio-sidenavbar-sidenavright';
+    }else if(this.position=="relative"){
+      this.amexioSidenavbarStr='amexio-sidenavbar-sidenav-relative';
+    }
+    return this.amexioSidenavbarStr;
+  }
   ngAfterViewInit() {
 
    /* if (this.httpMethod && this.httpUrl) {
