@@ -360,9 +360,9 @@ declare var $;
                     
                     
                   </ng-container>
-                  <span> 
-                          <label (click)="prev()" style="cursor: pointer;">&#9664;</label>
-                          <label (click)="next()" style="cursor: pointer;"> &#9654; </label>
+                  <span class="amexio-datatable-navigation-arrow"> 
+                          <label (click)="prev()" style="cursor: pointer;">&#10094;</label>
+                          <label (click)="next()" style="cursor: pointer;"> &#10095; </label>
                   </span>
                   
                   
@@ -394,10 +394,7 @@ declare var $;
             float: right;
             font-size: 18px;
         }
-
-        .amexio-datatable-opertions label{
-          padding: 10px;
-        }
+        
         .amexio-datatable-dropdown-action {
             max-height: 445.406px;
             overflow-y: auto;

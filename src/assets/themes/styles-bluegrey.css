@@ -708,7 +708,9 @@ label {
   padding-left: 25px!important;
   width: 50px!important;
 }
-
+/*for datatable navigation arrow color*/
+.amexio-datatable-navigation-arrow label{
+}
 /*Profile */
 .img-responsive {
   max-width: 100%;
