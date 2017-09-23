@@ -9,7 +9,7 @@
           <div class="row">
             <div class="col-lg-3">
               <div style="text-align: center;padding-bottom: 10px">
-                <amexio-btn [label]="'Compose'" [type]="'danger'" [icon]="'home'" [imageClass]="'material-icons'" [size]="'small'"[tooltipMessage]="'Compose'" (click)="toggle()" ></amexio-btn>
+                <amexio-btn [label]="'Compose'" [type]="'danger'" [size]="'small'"[tooltipMessage]="'Compose'" (click)="toggle()" ></amexio-btn>
               </div>
               <amexio-tree-view [dataTableBindData]="data"
                                 (selectedRecord)="onRowSelect($event)"
