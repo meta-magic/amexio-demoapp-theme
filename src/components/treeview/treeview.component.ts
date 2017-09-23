@@ -191,7 +191,6 @@ export class TreeViewComponent implements  OnInit, AfterViewInit{
     }
 
     ngAfterViewInit(){
-      debugger;
         if (this.httpMethod && this.httpUrl){
 
             this.treeViewService.fetchData(this.httpUrl, this.httpMethod).subscribe(

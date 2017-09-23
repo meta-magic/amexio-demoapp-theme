@@ -14,6 +14,7 @@ export class EmailComponent implements OnInit {
   isComposeOpen : boolean;
   bindData : any;
   data:any;
+  isVisible:boolean;
   constructor(private themeService:ThemeService) {
     this.isComposeOpen=false;
     this.bindData ={
@@ -54,9 +55,15 @@ export class EmailComponent implements OnInit {
         ]
       }
     };
+    this.isVisible=false;
 
   }
   onRowSelect(event:any){
+    if(event.length>0){
+      this.isVisible=true;
+    }else{
+      this.isVisible=false;
+    }
 
   }
   onRowClick(event:any){
