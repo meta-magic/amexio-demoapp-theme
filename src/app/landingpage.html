@@ -15,7 +15,6 @@
       <a class="nav-item nav-link " routerLink="#" >Home</a>
       <a class="nav-item nav-link " [attr.href]="'https://www.amexio.tech/features'"
          [target]="'_blank'">Features</a>
-      <a class="nav-item nav-link " routerLink="/home/dashboard" >Demo</a>
       <a class="nav-item nav-link " [attr.href]="'http://www.amexio.org/showcaseapp/v2/index.html#/home'"
          [target]="'_blank'">API</a>
       <a class="nav-item nav-link " [attr.href]="'https://amexio.tech/download'"
@@ -80,7 +79,9 @@
           </ul>
         </div>
         <div class="d-flex justify-content-center row" >
-          <amexio-btn  [type]="'primary'" [label]="'Let\'s start the demo!'" (onClick)="routeDemo($event)" ></amexio-btn>
+          <a class="btn btn-primary" (click)="routeDemo()" style="color: white">START SE DEMO !</a>
+          &nbsp;&nbsp;&nbsp;
+          <a class="btn btn-primary" href="http://www.amexio.org/tecmflix2/#/app" target="_blank">START EE DEMO !</a>
         </div>
       </amexio-pane-body>
     </amexio-card-pane>

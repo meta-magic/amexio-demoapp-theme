@@ -64,7 +64,8 @@ export class LandingPageComponent implements OnInit {
      }
    );
  }
-  routeDemo(event:any){
+  routeDemo(){
+   debugger;
     this._router.navigate(['/home/dashboard']);
   }
   //set theme which user has selected
