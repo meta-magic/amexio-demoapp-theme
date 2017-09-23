@@ -22,155 +22,145 @@ import {CommonHttpService} from "../common.http.service";
   selector: 'amexio-sidemenubar',
   template: `
 
-      <div [style.margin-top]="toPosition" [ngClass]="getSideNavbarClass()"  [attr.id]="elementId" (mouseleave)="expanded?null:closeNav()">
-          <ul class="navbar-nav">
-            <li *ngIf="filter==true">
-                <div class="amexio-sidenavbar-filter">
-                    <input type="text" class="form-control amexio-sidenavbar-input-width" [(ngModel)]="filterText"  placeholder="Search" (keyup)="filterData()" />
-                </div>
-            </li>
-              <li class="nav-item" *ngFor="let header of menus"  [ngClass]="{'amexio-sidenavbar-subheader':header.childrens,  'amexio-link-selected':(header.selected && !header.childrens)  }">
-                <div (click)="expandNode(header)">
-                  <ng-container *ngIf="headerTemplate==null">
-                    <a [ngClass]="(header.selected && !header.childrens)? 'amexio-link-selected' : 'amexio-link-notselected'" >
-                      {{header.text}}
-                    </a>
+    <div [style.margin-top]="toPosition" [ngClass]="getSideNavbarClass()"  [attr.id]="elementId" (mouseleave)="expanded?null:closeNav()">
+      <ul class="navbar-nav">
+        <li *ngIf="filter==true">
+          <div class="amexio-sidenavbar-filter">
+            <input type="text" class="form-control amexio-sidenavbar-input-width" [(ngModel)]="filterText"  placeholder="Search" (keyup)="filterData()" />
+          </div>
+        </li>
+        <li class="nav-item" *ngFor="let header of menus ">
+          <a class="nav-link amexio-sidenavbar-nav-link-a" [ngClass]="(header.selected && !header.childrens)? 'amexio-link-selected' : 'amexio-link-notselected'" (click)="expandNode(header)">
+            <ng-container *ngIf="headerTemplate==null">{{header.text}}</ng-container>
+
+            <ng-template *ngIf="headerTemplate!=null" [ngTemplateOutlet]="headerTemplate" [ngOutletContext]="{ $implicit: {}, navHeader:header }"></ng-template>
+
+            <span *ngIf="header.childrens " class="amexio-sidenavbar-child-header fa" [ngClass]="{'fa-angle-up':header.expand,'fa-angle-down':!header.expand}"></span>
+          </a>
+          <ng-container *ngIf="header.childrens && header.expand">
+            <div [ngStyle]="header.hstyle" >
+              <ul>
+                <li *ngFor="let level1Menu of header.childrens">
+                  <a (click)="menuClick(level1Menu)" [ngClass]="(level1Menu.selected && !level1Menu.childrens)? 'amexio-link-selected' : 'amexio-link-notselected'" >
+
+                    <ng-container *ngIf="childTemplate==null">{{level1Menu.text}}</ng-container>
+                    <ng-template *ngIf="childTemplate!=null" [ngTemplateOutlet]="childTemplate" [ngOutletContext]="{ $implicit: {}, menuHeader:level1Menu }"></ng-template>
+                  </a>
+                  <ng-container *ngIf="level1Menu.childrens">
+                    <ul class="amexio-sidenavbar-level1-child" (nodeClick)="menuClick($event)"  [templates]="subMenuTemplate"  amexio-submenu-view [subMenuData]="level1Menu.childrens"></ul>
                   </ng-container>
+                </li>
+              </ul>
+            </div>
+          </ng-container>
 
-                  <ng-template *ngIf="headerTemplate!=null" [ngTemplateOutlet]="headerTemplate" [ngOutletContext]="{ $implicit: {}, navHeader:header }"></ng-template>
+        </li>
+      </ul>
+    </div>
 
-                  <span *ngIf="header.childrens " class="amexio-sidenavbar-child-header fa" [ngClass]="{'fa-angle-up':header.expand,'fa-angle-down':!header.expand}"></span>
-                </div>
-                  <ng-container *ngIf="header.childrens && header.expand">
-                      <div [ngStyle]="header.hstyle" >
-                          <ul  class="navbar-nav">
-                              <li class="nav-item" *ngFor="let level1Menu of header.childrens" (click)="menuClick(level1Menu);" [ngClass]="{'amexio-link-selected':(level1Menu.selected && !level1Menu.childrens)  }" >
-                                  <ng-container *ngIf="childTemplate==null">
-                                    <a [ngClass]="(level1Menu.selected && !level1Menu.childrens)? 'amexio-link-selected' : 'amexio-link-notselected'" >
-                                      {{level1Menu.text}}
-                                    </a>
-                                  </ng-container>
-                                  <ng-template *ngIf="childTemplate!=null" [ngTemplateOutlet]="childTemplate" [ngOutletContext]="{ $implicit: {}, menuHeader:level1Menu }"></ng-template>
-                                  
-                                  <ng-container *ngIf="level1Menu.childrens">
-                                      <ul class="amexio-sidenavbar-level1-child" (nodeClick)="menuClick($event)"  [templates]="subMenuTemplate"  amexio-submenu-view [subMenuData]="level1Menu.childrens"></ul>
-                                  </ng-container>
-                              </li>
-                          </ul>
-                      </div>
-                  </ng-container>
-
-              </li>
-          </ul>
-      </div>
-
-      <span *ngIf="enableToggleButton && position!='relative' " [style.margin-top]="toPosition"  [ngClass]="{'amexio-sidenavbar-sidenavopenleft':(!right && position!='relative'), 'amexio-sidenavbar-sidenavopenright':right}"  (click)="openNav()">&#9776;</span>
+    <span *ngIf="enableToggleButton && position!='relative' " [style.margin-top]="toPosition"  [ngClass]="{'amexio-sidenavbar-sidenavopenleft':(!right && position!='relative'), 'amexio-sidenavbar-sidenavopenright':right}"  (click)="openNav()">&#9776;</span>
 
   `,
   styles : [`
-    
+    ul li{
+      list-style: none;
+      padding: 1px;
+    }
 
-      .amexio-link-selected{
+    a{
+      cursor: pointer;
+      text-decoration: none;
+    }
 
-      }
-      .amexio-link-notselected{
-        
-      } /*this is for relative position of sidenavbar*/
-      .amexio-sidenavbar-sidenav-relative{
-        height: 100%;
-        position: relative;
-        z-index: 1;
-        background-color: #ffffff;
-        overflow-x: hidden;
-        transition: 0.5s;
-        overflow: auto;
-      }
-      .amexio-sidenavbar-sidenavleft {
-          height: 100%;
-          width: 0;
-          position: fixed;
-          z-index: 1;
-          
-          left: 0;
-          background-color: #ffffff;
-          overflow-x: hidden;
-          transition: 0.5s;
-          overflow: auto;
-      }
+    .amexio-link-selected{
 
+    }
+    .amexio-link-notselected{
 
-      .amexio-sidenavbar-sidenavleft .nav-item{
-        text-align: left;
-        padding: 10px;
-        border-bottom: 1px solid #dddddd;
-      }
+    } /*this is for relative position of sidenavbar*/
+    .amexio-sidenavbar-sidenav-relative{
+      height: 100%;
+      position: relative;
+      z-index: 1;
+      background-color: #ffffff;
+      overflow-x: hidden;
+      transition: 0.5s;
+      overflow: auto;
+    }
+    .amexio-sidenavbar-sidenavleft {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #ffffff;
+      overflow-x: hidden;
+      transition: 0.5s;
+      overflow: auto;
+    }
 
-      .amexio-sidenavbar-subheader .nav-item{
-        border: none;
-      }
-      
-      .amexio-navbarsubmenu-ul li{
-        padding: 10px;
-      }
+    .amexio-sidenavbar-sidenavopenleft{
+      position:absolute;
+      top:0;
+      left:0;
+      font-size:30px;
+      cursor:pointer
+    }
 
-      .amexio-sidenavbar-sidenavopenleft{
-        position:absolute;
-        top:0;
-        left:0;
-        font-size:30px;
-        cursor:pointer
-      }
+    .amexio-sidenavbar-sidenavleft >ul >li {
+      border-bottom: 1px solid #e7e7e7;
+    }
 
+    .amexio-sidenavbar-sidenavright {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      background-color: #ffffff;
+      overflow-x: hidden;
+      transition: 0.5s;
+      overflow: auto;
+    }
 
-      .amexio-sidenavbar-sidenavright {
-          height: 100%;
-          width: 0;
-          position: fixed;
-          z-index: 1;
-          top: 0;
-          right: 0;
-          background-color: #ffffff;
-          overflow-x: hidden;
-          transition: 0.5s;
-          overflow: auto;
-      }
+    .amexio-sidenavbar-sidenavopenright{
+      position:absolute;
+      top:0;
+      right:0;
+      font-size:30px;
+      cursor:pointer
+    }
 
-      .amexio-sidenavbar-sidenavopenright{
-          position:absolute;
-          top:0;
-          right:0;
-          font-size:30px;
-          cursor:pointer
-      }
+    .amexio-sidenavbar-sidenavright >ul >li {
+      border-bottom: 1px solid #e7e7e7;
+    }
 
-      .amexio-sidenavbar-sidenavright >ul >li {
-          border-bottom: 1px solid #e7e7e7;
-      }
-
-      @media screen and (max-height: 450px) {
-          .amexio-sidenavbar-sidenavleft {padding-top: 15px;}
-      }
-      .amexio-sidenavbar-filter{
-          padding-top: 5px;
-          padding-bottom: 5px;
-          padding-left: 10px;
-      }
-      .amexio-sidenavbar-input-width{
-          width: 100%;
-      }
-      .amexio-sidenavbar-nav-link-a{
-          padding-left: 10px;
-          padding-right: 10px;
-      }
-      .amexio-sidenavbar-child-header{
-          float: right;
-      }
-      .amexio-sidenavbar-level1-child{
-          list-style: none;
-          padding:0px;
-      }
+    @media screen and (max-height: 450px) {
+      .amexio-sidenavbar-sidenavleft {padding-top: 15px;}
+    }
+    .amexio-sidenavbar-filter{
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+    }
+    .amexio-sidenavbar-input-width{
+      width: 100%;
+    }
+    .amexio-sidenavbar-nav-link-a{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .amexio-sidenavbar-child-header{
+      float: right;
+    }
+    .amexio-sidenavbar-level1-child{
+      list-style: none;
+      padding:0px;
+    }
   `],
-    providers: [CommonHttpService]
+  providers: [CommonHttpService]
 })
 
 export class SideNavBarComponent implements OnInit, AfterViewInit {
@@ -238,7 +228,7 @@ export class SideNavBarComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
-      this.toPosition = this.toPosition+'px';
+    this.toPosition = this.toPosition+'px';
     if (this.httpMethod && this.httpUrl) {
       this.callService();
     } else if (this.bindData) {
@@ -275,18 +265,18 @@ export class SideNavBarComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
 
-   /* if (this.httpMethod && this.httpUrl) {
-      this.callService();
-    } else if (this.bindData) {
-      this.setData(this.bindData);
-    }
-    // this.openNav();
+    /* if (this.httpMethod && this.httpUrl) {
+     this.callService();
+     } else if (this.bindData) {
+     this.setData(this.bindData);
+     }
+     // this.openNav();
 
-    if (this.expanded) {
-      setTimeout(() => {
-        this.openNav();
-      });
-    }*/
+     if (this.expanded) {
+     setTimeout(() => {
+     this.openNav();
+     });
+     }*/
   }
 
 
@@ -339,24 +329,26 @@ export class SideNavBarComponent implements OnInit, AfterViewInit {
   }
 
 
-    callService() {
-        this.navService.fetchData(this.httpUrl, this.httpMethod).subscribe(
-            response => {
-                this.bindData = response.json();
-            },
-            error => {
-            },
-            () => { this.renderServiceData();
-              this.cdf.markForCheck();
-            }
-        );
+  callService() {
+    this.navService.fetchData(this.httpUrl, this.httpMethod).subscribe(
+      response => {
+        this.bindData = response.json();
+      },
+      error => {
+      },
+      () => { this.renderServiceData();
+        this.cdf.markForCheck();
+      }
+    );
 
-    }
+  }
 
 
 
   openNav() {
-    document.getElementById(this.elementId).style.width = this.width;
+    if(this.position!='relative') {
+      document.getElementById(this.elementId).style.width = this.width;
+    }
   }
 
   closeNav() {
