@@ -282,7 +282,6 @@ export class DateTimeComponent implements OnInit {
   min: number;
 
   constructor() {
-    debugger;
     this.elementId = new Date().getTime() + "";
     this.selectedDate = new Date();
     this.currrentDate = new Date();
@@ -433,7 +432,6 @@ export class DateTimeComponent implements OnInit {
     if (this.hrs === 24) {
       this.hrs = 0;
     }
-    debugger;
     this.selectedDate.setHours(this.hrs);
     this.selectedDate.setMinutes(this.min);
     this.value = this.selectedDate;
@@ -458,7 +456,6 @@ export class DateTimeComponent implements OnInit {
       this.hrs = 23;
     }
 
-    debugger;
     this.selectedDate.setHours(this.hrs);
     this.selectedDate.setMinutes(this.min);
     this.value = this.selectedDate;
@@ -481,7 +478,6 @@ export class DateTimeComponent implements OnInit {
 
   //set accessor including call the onchange callback
   set value(v: any) {
-    debugger;
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.onChangeCallback(v);
@@ -495,7 +491,6 @@ export class DateTimeComponent implements OnInit {
 
   //From ControlValueAccessor interface
   writeValue(value: any) {
-    debugger;
     if (value !== this.innerValue) {
       this.innerValue = value;
       this.dateModel = this.innerValue;
