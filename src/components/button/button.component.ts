@@ -29,13 +29,13 @@ declare var $;
               <ng-container *ngIf="icon!=null">
                 
                 <!--this is for material design-->
-                <ng-container *ngIf="iconClass && imageClass">
-                  <i [attr.class]="imageClass" >{{iconClass}}</i>
+                <ng-container *ngIf="iconName && iconClass">
+                  <i [attr.class]="iconClass" >{{iconName}}</i>
                 </ng-container>
 
                 <!--this is for fontawesome-->
-                <ng-container *ngIf="iconClass && !imageClass">
-                  <i [attr.class]="iconClass"></i>
+                <ng-container *ngIf="iconName && !iconClass">
+                  <i [attr.class]="iconName"></i>
                 </ng-container>
               </ng-container>
               {{label}}
@@ -83,9 +83,9 @@ export class ButtonComponent implements OnInit , OnChanges, AfterViewInit {
 
   @Input()   popoverPlacement: string;
 
-  @Input() imageClass:string;
+  @Input() iconClass:string;
 
-  iconClass:string;
+  iconName:string;
 
   btnStyleClass: string;
 
@@ -137,7 +137,7 @@ export class ButtonComponent implements OnInit , OnChanges, AfterViewInit {
 
   //  assign mdbClass to imageClass
     if(this.icon){
-      this.iconClass=this.icon;
+      this.iconName=this.icon;
     }
 
   }
