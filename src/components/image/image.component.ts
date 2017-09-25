@@ -15,28 +15,40 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'amexio-image',
-  template: `    
+  template: `
     <!--Normal image-->
-      <ng-container *ngIf="imagePath || (imagePath && imageClass)">
-        <img [src]="imagePath" [attr.class]="cClass" (click)="onImageClick($event)" [attr.title]="tooltipMessage">
-      </ng-container>
-      
-      <!--this is for material design-->
-      <ng-container *ngIf="imageClass && mdbClass && !imagePath">
-        <i [attr.class]="imageClass" [attr.title]="tooltipMessage" (click)="onImageClick($event)"  >{{mdbClass}}</i>
-      </ng-container>
-      
-      <!--this is for fontawesome-->
-      <ng-container *ngIf="imageClass && (!imagePath && !mdbClass)">
-        <i [attr.class]="imageClass" [attr.title]="tooltipMessage" (click)="onImageClick($event)"></i>
-      </ng-container>
-  
-  `
+    <ng-container *ngIf="imagePath || (imagePath && imageClass)">
+      <img [src]="imagePath" [attr.class]="cClass" (click)="onImageClick($event)" [attr.title]="tooltipMessage">
+    </ng-container>
+
+    <!--this is for material design-->
+    <ng-container *ngIf="imageClass && mdbClass && !imagePath">
+      <i [attr.class]="imageClass" [attr.title]="tooltipMessage" (click)="onImageClick($event)"  >{{mdbClass}}</i>
+    </ng-container>
+
+    <!--this is for fontawesome-->
+    <ng-container *ngIf="imageClass && (!imagePath && !mdbClass)">
+      <i [attr.class]="imageClass" [attr.title]="tooltipMessage" (click)="onImageClick($event)"></i>
+    </ng-container>
+
+    <ng-container *ngIf=" title ">
+      <span class="amexio-image-title">{{title}}</span>
+    </ng-container>
+  `,
+  styles:[
+      `
+      .amexio-image-title{
+        font-size: medium;
+      }
+    `
+  ]
 })
 
 export class ImageComponent implements OnInit {
 
-  @Input() tooltipMessage:string
+  @Input() tooltipMessage:string;
+
+  @Input() title:string;
 
   @Input() imagePath:string;
 
