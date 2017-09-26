@@ -49,6 +49,10 @@ export class LandingPageComponent implements OnInit {
          'displayName':'Bluegrey',
          'name' : 'MDB',
          'fileName' : 'styles-bluegrey'
+       },{
+         'displayName':'Mat-amber',
+         'name' : 'MDB',
+         'fileName' : 'mat-amber'
        }]
      }
    ]
@@ -65,7 +69,6 @@ export class LandingPageComponent implements OnInit {
    );
  }
   routeDemo(){
-   debugger;
     this._router.navigate(['/home/dashboard']);
   }
   //set theme which user has selected
@@ -74,9 +77,11 @@ export class LandingPageComponent implements OnInit {
     this.themeService.setThemeName(themeName.name);
     let currentTheme = document.head.querySelectorAll(`link[rel="stylesheet"]`);
     this.removeExistingTheme(currentTheme);
-    if(themeName.fileName!=null)
+    if(themeName.fileName!=null){
       this.createAndApplyNewTheme(themeName);
       this._router.navigate(['/home/dashboard']);
+    }
+
   }
 
   //removed old theme css

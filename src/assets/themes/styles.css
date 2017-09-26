@@ -183,3 +183,34 @@ pagination-outer {
   color: rgba(0,0,0,0.54);
   float: left
 }
+
+
+/*-----------------------
+*** COMPONENT- DATAPOINTS ***
+-------------------------*/
+
+.datapoints{
+  background-color: #ECEFF1;
+  color: #455A64;
+}
+
+.datapoints-north{
+  color: #455A64; font-size: 36px; font-weight: bold;
+}
+
+.datapoints-center{
+  font-size: 20px;
+}
+
+.datapoint-south{
+  background-color: #455A64;
+  color: #ffffff;
+}
+
+.datapoint-west{
+  background-color: #ECEFF1;
+}
+
+.datapoints-center-issue{
+  font-size: 36px; font-weight: bold;
+}

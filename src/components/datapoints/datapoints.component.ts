@@ -10,8 +10,9 @@ import {
 
 @Component({
   selector: 'amexio-datapoints',
-  template: `    
-    <div style="padding-top: 5px">
+  template: `      
+      
+  <div  class="datapoints">
     <table width="100%"  [style.background-color]="backgroundColor" [style.color]="fontColor">
       <tr *ngIf="north">
         <td [attr.colspan]="colspan">
@@ -35,9 +36,16 @@ import {
         </td>
       </tr>
     </table>
-    </div>
+  </div>
 
-  `
+
+  `,styles:[
+    `
+      .datapoints{
+      
+      }
+    `
+  ]
 })
 
 export class DataPointsComponent implements OnInit {

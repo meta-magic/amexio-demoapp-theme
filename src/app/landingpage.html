@@ -31,7 +31,7 @@
             <a class="dropdown-item" [attr.id]="theme.name"  >{{theme.displayName}}</a>
                <ul>
                  <div style="padding-left: 25px">
-                   <li *ngFor="let childrenTheme of theme.childrens"  (click)="setTheme(theme)"> {{childrenTheme.displayName}}</li>
+                   <li *ngFor="let childrenTheme of theme.childrens"  (click)="setTheme(childrenTheme)"> {{childrenTheme.displayName}}</li>
                  </div>
                </ul>
           </ng-container>

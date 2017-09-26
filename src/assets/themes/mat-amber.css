@@ -6,12 +6,6 @@ body{
   letter-spacing: 0.2px;
   color: #6F6F6F;
 }
-
-/*Top nav bar*/
-.bg-inverse {
-  background-color: #90A4AE !important;
-}
-
 /* ----------------------------------- */
 /* MATERIAL ICONS - CSS */
 /* ----------------------------------- */
@@ -30,7 +24,12 @@ body{
 /* Rules for using icons as white on a dark background. */
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
-
+/* ----------------------------------- */
+/* START OF NAVBAR COMPONENT */
+/* ----------------------------------- */
+.bg-inverse {
+  background-color: #FFA000 !important;
+}
 /* ----------------------------------- */
 /* START OF CARD COMPONENT */
 /* ----------------------------------- */
@@ -39,7 +38,7 @@ body{
   color: #FFFFFF;
 }
 .card .card-header{
-  background-color: #455A64;
+  background-color: #FFC107;
   border-radius: 0px;
   font-size: 20px;
   padding: 20px 24px;
@@ -53,7 +52,7 @@ body{
   font-size: 13px;
   line-height: 24px;
   font-weight: 400;
-  padding-left: 16px ;
+  padding-left: 16px;
   padding-right: 16px;
 }
 .card .card-footer{
@@ -66,11 +65,10 @@ body{
 /* ----------------------------------- */
 /* COMPONENT - NAVIGATION */
 /* ----------------------------------- */
-
 .sidenavbox{
-  min-height: 1000px; border-right: 1px solid #ddd;
+  min-height: 1000px;
+  border-right: 1px solid #ddd;
 }
-
 .amexio-sidenavbar-sidenavleft{
   width: 100%;
   height: 100%
@@ -79,13 +77,11 @@ body{
   /* IMPLEMENTED */
   background-color: #fff;
 }
-
 .amexio-sidenavbar-sidenavleft .navbar-nav{
   width: 100%;
   margin: 0px;
   padding: 0px;
 }
-
 .amexio-sidenavbar-sidenavleft .nav-item{
   list-style: none;
   display: block;
@@ -95,12 +91,10 @@ body{
   font-weight: 500!important;
   width: 100%!important;
 }
-
 .amexio-sidenavbar-sidenavleft  .nav-item:hover {
   background-color: #eee;
   cursor: pointer;
 }
-
 .amexio-sidenavbar-sidenavleft  .amexio-sidenavbar-subheader{
   border-top: solid 1px #E0E0E0 !important;
   /*border-bottom: solid 1px  #E0E0E0 !important;*/
@@ -117,7 +111,6 @@ body{
 .amexio-sidenavbar-sidenavleft .amexio-sidenavbar-subheader:hover  {
   background-color: #ffffff;
 }
-
 .amexio-sidenavbar-sidenavleft  .nav-item{
   border-bottom: none!important;
 }
@@ -126,19 +119,18 @@ body{
   color: rgba(0,0,0,0.87);
 }
 .amexio-sidenavbar-sidenavleft  .nav-item i{
-  padding-right: 38px;
+    padding-right: 38px;
 }
-
 .amexio-link-selected{
   background-color: #eee!important;
 }
 
 .amexio-link-selected a{
-  color: #00695C!important;
+  color: #FF5722!important;
 }
 
 .amexio-link-selected i{
-  color: #00695C!important;
+  color: #FF5722!important;
 }
 
 .amexio-link-selected:hover {
@@ -174,8 +166,8 @@ body{
 }
 
 .amexio-listbox-list li img{
-  width: 52px;
-  height: 52px;
+  width: 40px;
+  height: 40px;
   border-radius: 200px;
   margin-right: 20px;
   float: left;
@@ -199,7 +191,7 @@ body{
 /* ----------------------------------- */
 
 .headerStyle{
-  background-color: #455A64;
+  background-color: #ffc107;
   color: #FFFFFF;
   font-size: 15px;
   padding: 20px 24px;
@@ -295,7 +287,7 @@ body{
   transition: all 0.4s ease;
 }
 .amexio-checkbox[type="checkbox"]:checked + label:before {
-  border: 2px solid #26a69a;
+  border: 2px solid #FF5722;
 }
 .amexio-checkbox[type="checkbox"] + label:after {
   box-sizing: content-box;
@@ -350,7 +342,7 @@ body{
 }
 .amexio-checkbox[type="checkbox"]:checked + label:before {
   animation: borderscale 200ms ease-in;
-  background: #26A69A;
+  background: #FF5722;
 }
 .amexio-checkbox[type="checkbox"]:checked + label:after {
   transform: rotate(-45deg) scale(1);
@@ -435,7 +427,7 @@ body{
   text-transform: uppercase
 }
 .btn-primary {
-  background-color: #26A69A;
+  background-color: #FF5722;
   border-color: transparent;
   color: #fff;
 }
@@ -444,8 +436,12 @@ body{
   border-color: transparent;
   box-shadow: none;
   border-radius: 0;
-  color: #26A69A;
+  color: #FF8F00;
   font-weight: 400;
+}
+.btn-link:hover {
+  color: #FF8F00;
+  text-decoration: none;
 }
 .btn,.btn-group-sm>.btn, .btn-sm{
   border-radius: 0px;
@@ -477,7 +473,7 @@ body{
 
 .login-card {
   width: 400px;
-  margin: 0 auto
+  margin: 0;
 }
 .mainpanel {
   width: 100%;
@@ -491,7 +487,7 @@ body{
 .mainpanel .title {
   font-size: 24px!important;
   line-height: 28px!important;
-  color: rgba(38,166,154,0.87) !important;
+  color: #FF5722;
   margin-bottom: 10px!important;
   display: block
 }
@@ -512,7 +508,10 @@ body{
   margin-top:20px;
 }
 .forgot-password a{
-  color: #26A69A!important;
+  color: #FF8F00!important;
+}
+.forgot-password a:hover{
+  text-decoration: none;
 }
 
 /* ----------------------------------- */
@@ -653,7 +652,7 @@ label {
   font-size: 13px;
   text-transform: uppercase;
   text-decoration: none;
-  color: rgba(38,166,154,0.87);
+  color: #FF5722;
 }
 /* ----------------------------------- */
 /* ICON FOR PROFILE ex.CAKE..*/
@@ -673,10 +672,9 @@ label {
   color: rgba(0,0,0,0.87);
   font-weight: 500!important;
 }
-
 .contact-list-mini img {
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   border-radius: 200px;
   margin-right: 20px;
   float: left;
@@ -696,7 +694,7 @@ label {
   display: table-cell!important;
   vertical-align: middle!important;
   padding: 13px 0px 13px 17px;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 13px;
 }
 
@@ -707,20 +705,21 @@ label {
 .amexio-treeview-node div i{
   padding-right: 20px;
 }
-
+/* CSS for Selected Item in Tree */
 .amexio-treeview-node-selected{
   text-decoration: none !important;
-  color: #00695C !important;
+  color: #FF5722 !important;
   display: table-cell!important;
   vertical-align: middle!important;
   padding: 13px 0px 13px 17px;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
+  background-color: #F3F3F3 !important;
 }
 
 .amexio-treeview-node-selected div i{
   padding-right: 20px;
-  color: #00695C !important;
+  color: #FF5722 !important;
 }
 
 .amexio-treeview-node:hover{
@@ -886,7 +885,7 @@ DROPDOWN MENU OPTIONS STYLE
 }
 
 .popover-title {
-  background-color: #455A64;
+  background-color: #FFC107;
   color: #FFFFFF;
   font-size: 20px;
   border: none;
@@ -909,16 +908,15 @@ DROPDOWN MENU OPTIONS STYLE
    border-top-left-radius: 0rem;
 }
 
-
 /*-----------------------
 *** COMPONENT- DATAPOINTS ***
 -------------------------*/
 .datapoints{
-  background-color: #ECEFF1;
-  color: #455A64;
+  background-color: #FFF8E1;
+  color: #FFC107;
 }
 .datapoints-north{
-  color: #455A64; font-size: 36px; font-weight: bold;
+  color: #FFC107; font-size: 36px; font-weight: bold;
 }
 
 .datapoints-center{
@@ -926,15 +924,14 @@ DROPDOWN MENU OPTIONS STYLE
 }
 
 .datapoint-south{
-  background-color: #455A64;
+  background-color: #FFC107;
   color: #ffffff;
 }
 
 .datapoint-west{
-  background-color: #ECEFF1;
+  background-color: #FFF8E1;
 }
 
 .datapoints-center-issue{
   font-size: 36px; font-weight: bold;
 }
-
