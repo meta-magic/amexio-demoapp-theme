@@ -946,7 +946,7 @@ DROPDOWN MENU OPTIONS STYLE
   transform: scale(1.1);
   box-shadow: 0px 0px 10px #000000;
   z-index: 1;
-  transition: all 100ms ease-in;
+  transition: all 200ms ease-in;
 }
 .ee-bullet-point{
   padding-left: 50px;
