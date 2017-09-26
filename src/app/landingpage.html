@@ -1,9 +1,10 @@
-<nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse" style="background-image: -webkit-linear-gradient(top,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));background-color: #292b2c">
+<nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse"
+     style="background-image: -webkit-linear-gradient(top,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));background-color: #292b2c">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#" >
+  <a class="navbar-brand" href="#">
     <div class="d-flex justify-content-center">
       <img src="assets/images/logos/amexio-logo.png" width="35" height="35" alt=""> Amexio Demo App
     </div>
@@ -12,7 +13,7 @@
     <div class="navbar-nav">
     </div>
     <div class="navbar-nav">
-      <a class="nav-item nav-link " routerLink="#" >Home</a>
+      <a class="nav-item nav-link " routerLink="#">Home</a>
       <a class="nav-item nav-link " [attr.href]="'https://www.amexio.tech/features'"
          [target]="'_blank'">Features</a>
       <a class="nav-item nav-link " [attr.href]="'http://www.amexio.org/showcaseapp/v2/index.html#/home'"
@@ -28,15 +29,8 @@
 </nav>
 
 <br><br><br>
-<div class="row" >
-  <div class="col-lg-8"  style="padding: 30px" >
-    <div class="theme-image" >
-      <a  href="http://www.amexio.org/tecmflix2/#/app" target="_blank">
-        <img class="img-fluid" src="assets/images/theme/enterprise_edition.jpg">
-      </a>
-    </div>
-  </div>
-  <div class="col-lg-4 ee-bullet-point" style="padding-top: 15px">
+<div class="row">
+  <div class="col-lg-3">
     <p style="font-size: 24px;color: black">Amexio Enterprise Edition</p>
     <ul>
       <li style="font-weight: 600">
@@ -59,22 +53,92 @@
       </li>
     </ul>
   </div>
-</div>
+  <div class="col-lg-9">
+    <table>
+      <tr>
+        <td>
+          <div class="theme-image">
+            <a (click)="onThemeClick('bluegey')">
+              <img class="img-fluid" style="padding: 10px" src="assets/images/theme/enterprise_edition.jpg">
+            </a>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
 
+</div>
+<br>
 <div class="row">
-  <div class="col-lg-4 " style="padding: 30px" >
-    <div class="theme-image">
-      <a  (click)="onThemeClick('bluegey')">
-        <img class="img-fluid" style="padding-left: 70px;padding-top: 10px" src="assets/images/theme/blue-grey.jpg">
-      </a>
-    </div>
+  <div class="col-lg-3" >
+    <p style="font-size: 24px;color: black">Media UI Components</p>
+    <p>To demonstrate the Enterprise Edition Capabilities under the Media Section, following advanced components are released in Amexio v3.0</p>
+
   </div>
-  <div class="col-lg-4" style="padding:30px">
-    <div class="theme-image">
-      <a  (click)="onThemeClick('mat-amber')">
-        <img class="img-fluid" style="padding-left: 70px;padding-top: 10px"  src="assets/images/theme/mat-amber.jpg">
-      </a>
+  <div class="col-lg-9">
+    <div class="row">
+      <div class="col-lg-6 " >
+        <table>
+          <tr>
+            <td>
+              <div class="theme-image">
+                <a (click)="onThemeClick('bluegey')">
+                  <img class="img-fluid" style="padding: 10px" src="assets/images/theme/blue-grey.jpg">
+                </a>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+      <div class="col-lg-6 ">
+        <table>
+          <tr>
+            <td>
+              <div class="theme-image">
+                <a (click)="onThemeClick('mat-amber')">
+                  <img class="img-fluid" style="padding: 10px" src="assets/images/theme/mat-amber.jpg">
+                </a>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+      </div>
     </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-6 " >
+        <table>
+          <tr>
+            <td>
+              <div class="theme-image">
+                <a (click)="onThemeClick('bluegey')">
+                  <img class="img-fluid" style="padding: 10px" src="assets/images/theme/blue-grey.jpg">
+                </a>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+      <div class="col-lg-6 ">
+        <table>
+          <tr>
+            <td>
+              <div class="theme-image">
+                <a (click)="onThemeClick('mat-amber')">
+                  <img class="img-fluid" style="padding: 10px" src="assets/images/theme/mat-amber.jpg">
+                </a>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+
   </div>
+
 
 </div>
