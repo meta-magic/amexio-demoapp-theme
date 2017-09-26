@@ -24,38 +24,9 @@ const CSS_LOCATION : string = 'assets/themes/';
 
 export class LandingPageComponent implements OnInit {
   httpResponse : any;
-
   menuData : any[] = [];
-  availableThemes:any[];
  constructor( private _router : Router ,public _http : Http,private themeService:ThemeService) {
-   this.availableThemes = [
-     {
-       'displayName':'Default Theme',
-       'name' : 'Default',
-       'fileName' : "styles",
-       'category' : 'free',
-       "childrens":[{
-         'displayName':'Blue',
-         'name' : 'Default',
-         'fileName' : 'styles'
-       }]
-     },
-     {
-       'displayName':'Material Design Theme',
-       'name' : 'MDB',
-       'fileName' : 'styles-bluegrey',
-       'category' : 'free',
-       "childrens":[{
-         'displayName':'Bluegrey',
-         'name' : 'MDB',
-         'fileName' : 'styles-bluegrey'
-       },{
-         'displayName':'Mat-amber',
-         'name' : 'MDB',
-         'fileName' : 'mat-amber'
-       }]
-     }
-   ]
+
    this._http.get('assets/data/menus/hometopmenu.json').subscribe(
      response=>{
        this.httpResponse = response.json()
@@ -68,8 +39,27 @@ export class LandingPageComponent implements OnInit {
      }
    );
  }
-  routeDemo(){
-    this._router.navigate(['/home/dashboard']);
+  onThemeClick(themeName:any){
+    let themeNameJSON:any;
+   if(themeName=='bluegey'){
+     themeNameJSON={
+       'name' : 'MDB',
+       'fileName' : 'styles-bluegrey'
+     }
+   }else if(themeName=='mat-amber'){
+     themeNameJSON={
+       'name' : 'MDB',
+       'fileName' : 'mat-amber'
+     }
+   }else if(themeName=='Default'){
+     themeNameJSON={
+       'name' : 'Default',
+       'fileName' : 'styles'
+     }
+   }
+   if(themeNameJSON){
+     this.setTheme(themeNameJSON);
+   }
   }
   //set theme which user has selected
   setTheme(themeName : any){

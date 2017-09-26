@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
+<nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse" style="background-image: -webkit-linear-gradient(top,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));background-color: #292b2c">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -22,72 +22,79 @@
       <a class="nav-item nav-link " [attr.href]="'https://github.com/meta-magic/amexio-demoapp.git'"
          [target]="'_blank'"
       >Git</a>
-      <li class="nav-item" style="cursor: pointer">
-        <a style="color: white" class="nav-link" id="themeToggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span style="font-size: 20px;color: whitesmoke">&#x2630;</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="themeToggler" style="overflow-y: auto">
-          <ng-container *ngFor="let theme of availableThemes">
-            <a class="dropdown-item" [attr.id]="theme.name"  >{{theme.displayName}}</a>
-               <ul>
-                 <div style="padding-left: 25px">
-                   <li *ngFor="let childrenTheme of theme.childrens"  (click)="setTheme(childrenTheme)"> {{childrenTheme.displayName}}</li>
-                 </div>
-               </ul>
-          </ng-container>
-        </div>
-      </li>
     </div>
   </div>
 
 </nav>
 
 <br><br><br>
-<div class="row">
-  <div class="col-lg-2"></div>
-  <div class="col-lg-8">
-    <amexio-card-pane [enableFooter]="false">
-      <amexio-pane-header>
-       Amexio Demo App Details
-      </amexio-pane-header>
+<div class="row" >
+  <div class="col-lg-12">
+    <amexio-card-pane [enableFooter]="false" [enableHeader]="false">
       <amexio-pane-body>
-        <div>
-          <p>
-          Demo app focuses on the showcase of Amexio UI Components and Features. Here we have created simple app with different pages which is using 60+ different amexio components,13 charts, 2 dashboards and 2 map
-          based on Angular4 and Bootstrap4.
-          </p>
+        <div class="row" >
+        <div class="col-lg-8" class="theme-image" style="padding-left: 30px">
+          <a  href="http://www.amexio.org/tecmflix2/#/app" target="_blank">
+          <img class="img-fluid" src="assets/images/theme/enterprise_edition_1.jpg">
+          </a>
         </div>
-        <div>
+        <div class="col-lg-4 ee-bullet-point">
+          <p style="font-size: 24px;color: black">Amexio Enterprise Edition</p>
           <ul>
-            <li>
-              Showcasing live Amexio charts.
+            <li style="font-weight: 600">
+              Media (Released with v3.0)
             </li>
             <li>
-              Email page showing list of emails with datagrid, tree showing all the nested labels required for showing menus
+              Health
             </li>
             <li>
-              Employee Registration showing two different forms in tabs.
+              E-Commerce
             </li>
             <li>
-              Issue Status showing stats using progress bar, customer feedback using carousel view.
+              Manufacturing
             </li>
-            <li>There are two reports which uses datagrid features like filtering and grouping.</li>
             <li>
-              Demo App <a style="color: blue" [attr.href]="'https://github.com/meta-magic/amexio-demoapp.git'"
-                          [target]="'_blank'"> Git Source Code </a>  is available on GIT public repository.
+              Supply Chain
+            </li>
+            <li>
+              Logistics
             </li>
           </ul>
         </div>
-        <div class="d-flex justify-content-center row" >
-          <a class="btn btn-primary" (click)="routeDemo()" style="color: white">START SE DEMO !</a>
-          &nbsp;&nbsp;&nbsp;
-          <a class="btn btn-primary" href="http://www.amexio.org/tecmflix2/#/app" target="_blank">START EE DEMO !</a>
         </div>
       </amexio-pane-body>
     </amexio-card-pane>
 
   </div>
+
 </div>
+<div class="row">
+  <div class="col-lg-4" style="padding: 20px" >
+    <amexio-card-pane [enableHeader]="false" [enableFooter]="false" [cClass]="'theme-image'">
+      <amexio-pane-body>
+        <a  (click)="onThemeClick('bluegey')">
+        <img class="img-fluid" src="assets/images/theme/bluegey.png">
+        </a>
+      </amexio-pane-body>
+    </amexio-card-pane>
+  </div>
+  <div class="col-lg-4" style="padding: 20px">
+    <amexio-card-pane [enableHeader]="false" [enableFooter]="false" [cClass]="'theme-image'">
+      <amexio-pane-body>
+        <a (click)="onThemeClick('mat-amber')">
+        <img class="img-fluid" src="assets/images/theme/mat-amber.png">
+        </a>
+      </amexio-pane-body>
+    </amexio-card-pane>
+  </div>
 
-
-
+  <div class="col-lg-4" style="padding: 20px">
+    <amexio-card-pane [enableHeader]="false" [enableFooter]="false" [cClass]="'theme-image'">
+      <amexio-pane-body>
+        <a (click)="onThemeClick('Default')">
+        <img class="img-fluid" src="assets/images/theme/mat-amber.png">
+        </a>
+      </amexio-pane-body>
+    </amexio-card-pane>
+  </div>
+</div>
