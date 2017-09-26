@@ -940,6 +940,9 @@ DROPDOWN MENU OPTIONS STYLE
 
 /*LANDING PAGE IMAGE*/
 .theme-image{
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: .0rem;
+  box-shadow: 5px 5px 5px #888888;
 
 }
 .theme-image:hover{
