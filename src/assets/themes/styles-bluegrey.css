@@ -947,7 +947,7 @@ DROPDOWN MENU OPTIONS STYLE
 }
 .theme-image:hover{
   transform: scale(1.1);
-  box-shadow: 0px 0px 10px #000000;
+  box-shadow: 2px 2px 2px #000000;
   z-index: 1;
   transition: all 200ms ease-in;
 }
@@ -959,3 +959,7 @@ DROPDOWN MENU OPTIONS STYLE
   font-weight: 400;
 }
 
+/*Landing page navbar color*/
+.landing-page-navbar .bg-inverse{
+  background-color: #292b2c!important;
+}
