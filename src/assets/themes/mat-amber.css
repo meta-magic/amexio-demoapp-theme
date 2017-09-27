@@ -913,10 +913,10 @@ DROPDOWN MENU OPTIONS STYLE
 -------------------------*/
 .datapoints{
   background-color: #FFF8E1;
-  color: #FFC107;
+  color: #455A64;
 }
 .datapoints-north{
-  color: #FFC107; font-size: 36px; font-weight: bold;
+  color: #455A64; font-size: 36px; font-weight: bold;
 }
 
 .datapoints-center{
@@ -934,4 +934,11 @@ DROPDOWN MENU OPTIONS STYLE
 
 .datapoints-center-issue{
   font-size: 36px; font-weight: bold;
+}
+.ee-bullet-point{
+  padding-left: 50px;
+}
+.ee-bullet-point ul li{
+  font-size: medium;
+  font-weight: 400;
 }
