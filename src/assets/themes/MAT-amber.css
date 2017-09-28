@@ -914,10 +914,10 @@ DROPDOWN MENU OPTIONS STYLE
 -------------------------*/
 .datapoints{
   background-color: #FFF8E1;
-  color: #455A64;
+  color: #FFC107;
 }
 .datapoints-north{
-  color: #455A64; font-size: 36px; font-weight: bold;
+  color: #FFC107; font-size: 36px; font-weight: bold;
 }
 
 .datapoints-center{
