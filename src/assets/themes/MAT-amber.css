@@ -885,7 +885,7 @@ DROPDOWN MENU OPTIONS STYLE
 }
 
 .popover-title {
-  background-color: #455A64;
+  background-color: #FFC107;
   color: #FFFFFF;
   font-size: 20px;
   border: none;
@@ -961,3 +961,4 @@ DROPDOWN MENU OPTIONS STYLE
   z-index: 1;
   transition: all 200ms ease-in;
 }
+
