@@ -41,10 +41,10 @@ export class LandingPageComponent implements OnInit {
  }
   onThemeClick(themeName:any){
     let themeNameJSON:any;
-   if(themeName=='bluegey'){
+   if(themeName=='MAT-bluegrey'){
      themeNameJSON={
        'name' : 'MDB',
-       'fileName' : 'styles-bluegrey'
+       'fileName' : 'MAT-bluegrey'
      }
    }else if(themeName=='MAT-amber'){
      themeNameJSON={
