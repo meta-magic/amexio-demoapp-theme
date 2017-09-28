@@ -8,17 +8,7 @@ import {ThemeService} from "./theme.service";
 const CSS_LOCATION : string = 'assets/themes/';
 @Component({
  selector: 'landing-page',
- templateUrl:'landingpage.html',
-  styles : [
-    `
-      .landing-page{
-        background: center no-repeat transparent;
-        background-image: url("./../assets/Nighthawk.jpg");
-        height: 100vh;
-        color: #cccccc;
-      }
-    `
-  ]
+ templateUrl:'landingpage.html'
 })
 
 
