@@ -215,7 +215,7 @@ pagination-outer {
 }
 /*LANDING PAGE IMAGE*/
 .theme-image{
-
+  box-shadow: 2px 2px 2px 2px #000000;
 }
 .theme-image:hover{
   transform: scale(1.1);
