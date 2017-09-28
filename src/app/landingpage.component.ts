@@ -40,7 +40,6 @@ export class LandingPageComponent implements OnInit {
    );
  }
   onThemeClick(themeName:any){
-   debugger;
     let themeNameJSON:any;
    if(themeName=='bluegey'){
      themeNameJSON={
@@ -54,23 +53,28 @@ export class LandingPageComponent implements OnInit {
      }
    }else if(themeName=='MAT-brown'){
      themeNameJSON={
-       'name' : 'Default',
+       'name' : 'MDB',
        'fileName' : 'MAT-brown'
      }
    }else if(themeName=='MAT-indigo'){
      themeNameJSON={
-       'name' : 'Default',
+       'name' : 'MDB',
        'fileName' : 'MAT-indigo'
      }
    }else if(themeName=='MAT-light-blue'){
      themeNameJSON={
-       'name' : 'Default',
+       'name' : 'MDB',
        'fileName' : 'MAT-light-blue'
      }
    }else if(themeName=='Default'){
      themeNameJSON={
        'name' : 'Default',
        'fileName' : 'styles'
+     }
+   }else if(themeName=='BTS-Orange'){
+     themeNameJSON={
+       'name' : 'MDB',
+       'fileName' : 'BTS-Orange'
      }
    }
    if(themeNameJSON){
