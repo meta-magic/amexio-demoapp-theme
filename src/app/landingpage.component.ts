@@ -54,25 +54,26 @@ export class LandingPageComponent implements OnInit {
      }
    }else if(themeName=='MAT-brown'){
      themeNameJSON={
-       'name' : 'Default',
+       'name' : 'MDB',
        'fileName' : 'MAT-brown'
      }
    }else if(themeName=='MAT-indigo'){
      themeNameJSON={
-       'name' : 'Default',
+       'name' : 'MDB',
        'fileName' : 'MAT-indigo'
      }
    }else if(themeName=='MAT-light-blue'){
      themeNameJSON={
-       'name' : 'Default',
+       'name' : 'MDB',
        'fileName' : 'MAT-light-blue'
      }
-   }else if(themeName=='Default'){
-     themeNameJSON={
-       'name' : 'Default',
-       'fileName' : 'styles'
-     }
    }
+   // else if(themeName=='Default'){
+   //   themeNameJSON={
+   //     'name' : 'Default',
+   //     'fileName' : 'styles'
+   //   }
+   // }
    if(themeNameJSON){
      this.setTheme(themeNameJSON);
    }
@@ -127,14 +128,15 @@ export class LandingPageComponent implements OnInit {
       font2.id='custom_theme';
       font2.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
       document.head.appendChild(font2);
-    }else{
-      //this is for default theme
-      let linkEl = document.createElement('link');
-      linkEl.setAttribute('rel', 'stylesheet');
-      linkEl.id='custom_theme';
-      linkEl.href = CSS_LOCATION+'/'+theme.fileName+'.css';
-      document.head.appendChild(linkEl);
-    }
+     }
+    //  else{
+    //   //this is for default theme
+    //   let linkEl = document.createElement('link');
+    //   linkEl.setAttribute('rel', 'stylesheet');
+    //   linkEl.id='custom_theme';
+    //   linkEl.href = CSS_LOCATION+'/'+theme.fileName+'.css';
+    //   document.head.appendChild(linkEl);
+    // }
 
   }
  ngOnInit() {
