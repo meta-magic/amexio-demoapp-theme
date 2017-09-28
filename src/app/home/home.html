@@ -1,5 +1,5 @@
 <top-nav-bar></top-nav-bar>
-<div class="container-fluid" (window:resize)="onResize($event)">
+<div class="container-fluid" (window:resize)="onResize($event)" style="padding-right: 0px;">
   <div *ngIf="!isMobile" class="row">
     <div *ngIf="themeName==='Default'" class="col-lg-2 sidenavbox" >
       <amexio-sidemenubar

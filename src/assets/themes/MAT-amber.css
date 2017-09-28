@@ -35,7 +35,7 @@ body{
 /* ----------------------------------- */
 .card{
   border-radius: 0px;
-  color: #FFFFFF;
+  color: black;
 }
 .card .card-header{
   background-color: #FFC107;
@@ -926,7 +926,7 @@ DROPDOWN MENU OPTIONS STYLE
 
 .datapoint-south{
   background-color: #FFC107;
-  color: #ffffff;
+  color: black;
 }
 
 .datapoint-west{
