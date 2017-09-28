@@ -40,16 +40,32 @@ export class LandingPageComponent implements OnInit {
    );
  }
   onThemeClick(themeName:any){
+   debugger;
     let themeNameJSON:any;
    if(themeName=='bluegey'){
      themeNameJSON={
        'name' : 'MDB',
        'fileName' : 'styles-bluegrey'
      }
-   }else if(themeName=='mat-amber'){
+   }else if(themeName=='MAT-amber'){
      themeNameJSON={
        'name' : 'MDB',
-       'fileName' : 'mat-amber'
+       'fileName' : 'MAT-amber'
+     }
+   }else if(themeName=='MAT-brown'){
+     themeNameJSON={
+       'name' : 'Default',
+       'fileName' : 'MAT-brown'
+     }
+   }else if(themeName=='MAT-indigo'){
+     themeNameJSON={
+       'name' : 'Default',
+       'fileName' : 'MAT-indigo'
+     }
+   }else if(themeName=='MAT-light-blue'){
+     themeNameJSON={
+       'name' : 'Default',
+       'fileName' : 'MAT-light-blue'
      }
    }else if(themeName=='Default'){
      themeNameJSON={

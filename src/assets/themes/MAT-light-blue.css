@@ -5,6 +5,7 @@ body{
   font-weight: 400;
   letter-spacing: 0.2px;
   color: #6F6F6F;
+  background-image: url(../../themes/M-LB-Background.png);
 }
 /* ----------------------------------- */
 /* MATERIAL ICONS - CSS */
@@ -28,7 +29,7 @@ body{
 /* START OF NAVBAR COMPONENT */
 /* ----------------------------------- */
 .bg-inverse {
-  background-color: #FFA000 !important;
+  background-color: #81D4FA !important;
 }
 /* ----------------------------------- */
 /* START OF CARD COMPONENT */
@@ -38,13 +39,14 @@ body{
   color: #FFFFFF;
 }
 .card .card-header{
-  background-color: #FFC107;
+  background-color: #E1F5FE;
   border-radius: 0px;
   font-size: 20px;
   padding: 20px 24px;
   overflow: auto;
   font-weight: 300;
   text-transform: capitalize;
+  color: #0277BD;
 }
 .card .card-block{
   border-radius: 0px;
@@ -71,7 +73,7 @@ body{
 }
 .amexio-sidenavbar-sidenavleft{
   width: 100%;
-  height: 100%
+  height: 100%;
   overflow:hidden;
   float: left;
   /* IMPLEMENTED */
@@ -126,11 +128,11 @@ body{
 }
 
 .amexio-link-selected a{
-  color: #FF5722!important;
+  color: #0277BD!important;
 }
 
 .amexio-link-selected i{
-  color: #FF5722!important;
+  color: #0277BD!important;
 }
 
 .amexio-link-selected:hover {
@@ -191,13 +193,14 @@ body{
 /* ----------------------------------- */
 
 .headerStyle{
-  background-color: #ffc107;
+  background-color: #E1F5FE;
   color: #FFFFFF;
   font-size: 15px;
   padding: 20px 24px;
   overflow: auto;
   font-weight: 300;
   text-transform: capitalize;
+  color: #0277BD;
 
 }
 
@@ -287,7 +290,7 @@ body{
   transition: all 0.4s ease;
 }
 .amexio-checkbox[type="checkbox"]:checked + label:before {
-  border: 2px solid #FF5722;
+  border: 2px solid #0277BD;
 }
 .amexio-checkbox[type="checkbox"] + label:after {
   box-sizing: content-box;
@@ -342,7 +345,7 @@ body{
 }
 .amexio-checkbox[type="checkbox"]:checked + label:before {
   animation: borderscale 200ms ease-in;
-  background: #FF5722;
+  background: #0277BD;
 }
 .amexio-checkbox[type="checkbox"]:checked + label:after {
   transform: rotate(-45deg) scale(1);
@@ -427,7 +430,7 @@ body{
   text-transform: uppercase
 }
 .btn-primary {
-  background-color: #FF5722;
+  background-color: #0277BD;
   border-color: transparent;
   color: #fff;
 }
@@ -436,7 +439,7 @@ body{
   border-color: transparent;
   box-shadow: none;
   border-radius: 0;
-  color: #FF8F00;
+  color: #0277BD;
   font-weight: 400;
 }
 .btn-link:hover {
@@ -487,7 +490,7 @@ body{
 .mainpanel .title {
   font-size: 24px!important;
   line-height: 28px!important;
-  color: #FF5722;
+  color: #0277BD;
   margin-bottom: 10px!important;
   display: block
 }
@@ -652,7 +655,7 @@ label {
   font-size: 13px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #FF5722;
+  color: #0277BD;
 }
 /* ----------------------------------- */
 /* ICON FOR PROFILE ex.CAKE..*/
@@ -708,7 +711,7 @@ label {
 /* CSS for Selected Item in Tree */
 .amexio-treeview-node-selected{
   text-decoration: none !important;
-  color: #FF5722 !important;
+  color: #0277BD !important;
   display: table-cell!important;
   vertical-align: middle!important;
   padding: 13px 0px 13px 17px;
@@ -719,7 +722,7 @@ label {
 
 .amexio-treeview-node-selected div i{
   padding-right: 20px;
-  color: #FF5722 !important;
+  color: #0277BD !important;
 }
 
 .amexio-treeview-node:hover{
@@ -885,7 +888,7 @@ DROPDOWN MENU OPTIONS STYLE
 }
 
 .popover-title {
-  background-color: #FFC107;
+  background-color: #29B6F6;
   color: #FFFFFF;
   font-size: 20px;
   border: none;
@@ -908,15 +911,16 @@ DROPDOWN MENU OPTIONS STYLE
    border-top-left-radius: 0rem;
 }
 
+
 /*-----------------------
 *** COMPONENT- DATAPOINTS ***
 -------------------------*/
 .datapoints{
-  background-color: #FFF8E1;
-  color: #455A64;
+  background-color: #E1F5FE;
+  color: #0277BD;
 }
 .datapoints-north{
-  color: #455A64; font-size: 36px; font-weight: bold;
+  color: #0277BD; font-size: 36px; font-weight: bold;
 }
 
 .datapoints-center{
@@ -924,12 +928,12 @@ DROPDOWN MENU OPTIONS STYLE
 }
 
 .datapoint-south{
-  background-color: #FFC107;
+  background-color: #81D4FA;
   color: #ffffff;
 }
 
 .datapoint-west{
-  background-color: #FFF8E1;
+  background-color: #E1F5FE;
 }
 
 .datapoints-center-issue{
